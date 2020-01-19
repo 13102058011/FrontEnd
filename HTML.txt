@@ -1,0 +1,368 @@
+1.html细节知识
+    1.为什么叫做html
+        1. 编写网页的语言，叫做HTML，规则由W3C制定
+        2. W3C		万维网联盟
+        3. HTML		-超文本语言
+
+    2.文件命名
+        1. 使用小写字母命名文件，不要出现中文字符
+        2. 扩展名标准是.html，当然也可以使用.htm
+        3. 多个单词可以使用 - 或 _ 连接，建议使用 - 字符如user-create.html
+
+    3.URL
+        1. 说明
+			统一资源定位符，用于表示资源在网络上的地址，每个部分以/进行分隔
+        2. 示例
+			http资源访问 	 : https://www.houdunren.com/edu/front/lesson/298.html
+			FTP文件下载  	-: ftp://ftp.houdunren.com/download/php.pdf
+			MAILTO邮箱地址    : mailto:2300071698@qq.com
+		3. 解析
+			参数			  说明
+			https			  -访问协议 http或https、ftp、mailto
+			www.houdunren.com		-服务器地址
+			edu/front/lesson		资源目录
+			298.html			文件名
+
+	4.访问路径
+		1.绝对路径
+			1. 绝对路径包含主机+服务器地址+目录+文件名的完整路径
+			2. https://www.houdunren.com/edu/front/lesson/298.html
+
+		2.相对路径
+			1. 相对路径是指相对当前目录的地址
+			2. ../3.html (上级目录中的文件)
+
+-------------------------------------------------------------------------------
+2.基本结构
+	1.代码示例
+		<!DOCTYPE html>	  	
+		<html lang="zh-CN">	  
+			<head>		
+				<meta charset="utf-8" />
+				<meta name="keyword" content="Mysql,Laravel,Javascript,HTML,CSS,ES6,TYPESCRIPT,后盾人,后盾人教程" />
+				<meta name="description" content="后盾人专注WEB开发，高密度更新视频教程" />
+				<title>这是网页的标题</title>		
+			</head>
+			<body>			
+				<p> p标签代表段落，因此这里的内容会独占一行 </p>
+				<!-- 这里的内容不会显示在网页上，它通常用来注释我们的程序代码 -->
+			</body>
+		</html>
+	
+	2.代码解析
+		1. <!DOCTYPE html>	这句声明就是告诉浏览，请使用HTML5的标准来解析这个网页
+		2. lang="zh-CN"	   网页的语言，如en/zh-CN等，非必选项目
+		3. head		   表示网页的头部，这里的信息都是对网页的整体说明
+		4. charset="utf-8"	-字符编码
+		5. keyword		-搜索引擎说明你的网页的关键词
+		6. description	  -向搜索引擎描述网页内容的摘要信息
+		7. title	   -网页标题
+		8. body		   body表示网页的身体，网页的主要内容都写在这里
+
+-------------------------------------------------------------------------------
+3.HTML基本语法
+	1.<p></p>
+		p标签代表段落，因此这里的内容会独占一行
+		
+	2.<h1~6></h1~6>
+		h1~6标签代表标题，1~6代表不同大小的标题
+		
+	3.<i></i> | <em></em>
+		i标签代表斜体字
+		
+	4.<hr/>
+		hr标签代表一条水平线
+		
+	5.<b></b> | <strong></strong>
+		加粗字体
+		
+	6.<br/>
+		换行
+	
+	7.&nbsp;
+		代表一个空格
+		HTML只能识别段落内的一个空格，使用&nbsp;显示一个空格
+		
+	10.<!--注释-->
+		这是一个注释
+		
+	11.<del></del>
+		给文字增加删除键
+
+	12.<sup>2</sup>
+		把文字变成上标
+		
+	13.<u></u>
+		给文字加上下划线
+		
+	14.<center></center>
+		使文字居中
+		
+	15.&copy
+		备案中图标
+		
+	16<body bgcolor="#6A5ACD">
+		body的背景颜色
+	
+	17.<ins>前端</ins>
+		定义插入字，文字带下划线，左右带空格
+		
+	18.<sub>2</sub>
+		定义下标字
+		
+	19.<em>强调</em>
+		强调字体
+
+-------------------------------------------------------------------------------
+4.图片
+	<img src="img/11.gif" alt="" title = "" height = "">
+	1.常见属性
+		src = "图片路径"
+		title = "鼠标滑上去的提示"
+		alt = "图片加载失败后的文字"
+		height/weight = "图片尺寸"
+		
+	1.图片的显示
+		图片在网页中自左往右显示，并默认以底部对齐
+		当一行放不下所有图片时，会在下一行显示
+
+	2.调整图片的大小
+		<img src="images/01.jpg"  height="100px">
+		height和weigth只需设定一个就可以了，图片会成比例进行放缩
+		如果两个都设置，需要保证比例不变，否则图片会变形
+		height = "100%"表示撑满屏幕
+		px是像素单位
+		
+-------------------------------------------------------------------------------
+5.链接
+	1.链接数据
+		1.文本链接
+		2.图片链接
+		
+	2.属性
+		1.href属性：指向另一个文档的链接
+		2.name属性：创建文档内的链接
+		
+	3.示例
+		<a href="https://www.baidu.com/" target="_blank" title = "" alt = "">
+			<img src="img/11.gif">
+			百度
+		</a>
+		
+		href = "网页地址"
+		target = "_blank"表示在新页面打开，无target表示在当前页面打开
+		title = "鼠标滑上去的提示"
+		alt = "替换文本"
+		a标签中可以添加图片
+		<a href = "#">代表空链接
+	
+	3.name属性
+		<a name="tips">hello</a>
+		<a href="#tips">跳转到hello</a>
+		在同一页面内跳转
+-------------------------------------------------------------------------------
+6.如何下载图片及贴图
+	1.网页中下载图片
+		1.直接右击图片下载
+		2.F12打开源码，从中查找图片下载地址
+
+	2.使用PhotoShop切图
+		1.添加图片
+		
+		2.选择切图工具
+		
+		3.切取
+		
+		4.保存
+
+		5.常用快捷键
+			1.调整大小
+				alt + 鼠标滚轮
+			2.保存
+				ctrl + alt + shift + s 
+
+-------------------------------------------------------------------------------
+7.绝对地址和相对地址
+	1.绝对地址
+		在任何情况下，都可以找的的地址
+	2.相对地址
+		必须知道当前所在，才能找到
+		../img/baidu.jpg
+		../表示返回上一级
+-------------------------------------------------------------------------------
+8.有序列表
+	<ol type = "" start="10">
+		<li>种子</li>
+		<li>呵呵</li>
+		<li>搜索</li>
+	</ol>
+	
+		1.默认以数字列表显示（type = "1"）
+			1.种子
+			2.呵呵
+			3.搜索			
+		2.type = "a"
+			以abc显示
+		3.type = "A"
+			以ABC显示
+		4.type = "i"
+			以小写罗马字符显示			
+		5.type = "I"
+			以大写罗马字符显示
+		6.start="10"
+			以数字10开始
+			
+-------------------------------------------------------------------------------
+9.无序列表
+	<ul type = "">
+		<li>种子</li>
+		<li>呵呵</li>
+		<li>搜索</li>
+	</ul>
+		1.默认带·的列表显示（type = "disc"）
+			·种子 
+			·呵呵
+			·搜索			
+		2.type = "circle"
+			表示空心圆?		
+		3.type = "square"
+			表示黑方块■
+
+<9.1>自定义列表
+	<dl>
+		<dt>名词</dt>
+		<dd>解释</dd>
+		...
+	</dl>
+-------------------------------------------------------------------------------
+10.表格
+	<table border="1px"          cellspacing="0" 		cellpadding="10px" 
+		bgcolor="#8A2BE2"        background="001.jpg"	  bordercolor="dimdray"
+	    width="100" 		 height="100"		   align="center">
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+		</tr>
+		<tr>
+			<td>张三</td>
+			<td>男</td>
+		</tr>
+		<tr>
+			<td>王小丫</td>
+			<td>女</td>
+		</tr>
+	</table>
+	
+		1.代码解析
+			1.<table></table>		   表示表格
+			2.<tr></tr>				表示一行
+			3.<td></td>				表示一个单元格
+			4.<th></th>				表示表头，文字加粗并居中显示
+			
+		2.table标签属性解析
+			3.border="1px"				表示加入边框，默认双边框
+			4.cellspacing="0"			单元格与单元格之间的间距
+			5.cellpadding="10"			单元格与内容之间的距离
+			6.bgcolor="#8A2BE2"			填充背景颜色
+			7.background="001.jpg"		填充图片
+			8.bordercolor="dimdray"		边框颜色
+			9.width="100" 				表格的宽度
+			10.height="100"				表格的高度
+			11.align="center"			表格对齐方式
+			
+		3.tr标签属性解析
+			1.width="200px"				宽度
+			2.align = "center"			一行的文本对齐方式
+			
+		4.td标签属性解析
+			1.width="200px"				为一列设置宽度（取大原则）
+			2.align="center"			文本对齐方式
+			3.valign="baseline"			文本垂直对齐方式（top/bottom/middle）
+			4.colspan="7"				所要合并单元格的列数
+			5.rowspan="4"				所要合并单元格的行数
+			
+		5.其他标签和属性解析
+			1.<col width="200px" >				为一列表格添加属性
+			2.<caption></caption>				表格标题，居中对齐
+			2.<colgroup span="6" width="100px">	表示为6列同时设置属性
+		
+		6.表格的三个部分
+			<table border="1px" cellspacing="0" >
+				<thead>
+					表格的页眉
+				</thead>
+				<tbody>
+					表格的主题
+				</tbody>
+				<tfoot>
+					表格的页脚
+				</tfoot>
+			</table>
+			
+		7.关于标签的嵌套
+			1.超链接内不能嵌套超链接
+			2.p标签不能嵌套p标签
+			3.标题标签h1~h6也不能互相嵌套
+					
+-------------------------------------------------------------------------------
+11.表单
+	<form name="" method="post" action="">
+		<input type="text" name="" id="" value="" />
+		<select>
+			<option value ="">2001</option>
+			<option value ="">2002</option>
+		</select>
+		<textarea rows="20" cols="100">
+			输入内容
+		</textarea>
+	</form>
+	
+	1.代码解析
+		1.<form action="" method=""></form>		表单域
+		2.<input type="text" value="" />		表单控件
+		3.<select></select>						下拉菜单
+		4.<textarea rows="" cols=""></textarea>	多行文本框
+		
+	2.form标签内属性解析
+		1.name=""						规定表单的名称
+		2.action = "提交地址"			表示提交地址，与后端对接
+		3.method="post/get"				规定用于发送 form-data 的 HTTP 方法
+		
+	3.method属性注意事项
+		1.post请求发送的数据用户不可见
+		2.get请求发送的数据都写在地址栏上，用户可见
+		3.get请求通常表示获取数据,post请求通常表示提交数据
+		4.get请求不能提交大量数据，但post可以，因此不要混用
+	
+	4.input标签内属性解析
+		1.name=""						定义input元素的名称
+		2.id=""							作为标签的唯一标识
+		3.value="" 						规定input元素的值(初始值)
+		4.type = "text"					规定input元素的类型
+		5.placeholder=""				规定帮助用户填写输入字段的提示
+		6.disabled="disabled"/disabled	禁用选择
+		7.checked="checked"/checked		默认选择
+		
+	5.type属性详解
+		1.type = "text"			文本输入框	
+		2.type = "password"		密码输入框	
+		3.type = "radio"		单选框	
+		4.type = "checkbox"		复选框		
+		5.type = "button"		普通按钮		
+		6.type = "submit"		提交按钮		
+		7.type = "reset"		重置按钮
+		8.type = "file"			文件选择框
+		
+	6.单选框详解
+		<p>性别：男<input type="radio" name="sex"/>女<input type="radio" name="sex" /></p>
+		一定要设置同一个name值才可以是单选
+		
+	7.textarea标签属性解析
+		1.rows=""			文本框窗口的高度，单位是字符
+		2.cols=""			文本框窗口的宽度，单位是字符
+	
+	6.注意事项
+		1.form必须有action属性，表示提交地址
+		2.所有需要提交的数据，input必须有name属性
+		3.input按钮的文字，使用value属性表示
+		4.input必须放在form标签内才能提交

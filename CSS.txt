@@ -1,0 +1,344 @@
+1.CSS样式表
+	1.CSS简介
+		用来修饰网页样式的语法
+		叫做重叠样式表
+	
+	2.三种CSS样式表的建立
+		1.内联样式表
+			<p style="color: #D1D3D6;">hello</p>
+	
+		
+		2.内部样式表
+			<style type="text/css">
+				p{
+					color:red;
+				}
+			</style>
+			
+			1.代码解析
+				使用style标记创建样式表时，最好写在head标签之间
+							
+		3.外部样式表
+			<link rel="stylesheet" type="text/css" href="../015练习/001.css"/>
+			
+			1.代码解析
+				使用link元素导入外部样式表时，需要写在head标签之间
+				
+			2.属性解析
+				rel="stylesheet"		用于定义文档关联，表示关联样式表
+				type="text/css"			定义文档的类型
+				
+	3.CSS常用选择符
+		1.元素选择符
+			1.示例
+				div{
+					color:blue;
+				}
+			2.用法
+				使用标签名作为选择器(p,div,span,body,img...)
+			
+		2.ID选择符
+			1.示例		
+				#navigate {
+					color:red;
+				}
+				<div id="navigate" >
+			2.用法
+				使用#+id来说明内部样式
+				id表示身份，不能重复，只能选择单个元素
+				
+		3.类（别）选择符
+			1.示例
+				.nav {
+					color：red;
+				}
+				<a href="#" class="nav">关于主页</a>
+			2.用法	
+				使用.+class来说明内部样式
+				
+		4.通用选择符
+			1.示例
+				*{
+					color：bule;
+				}
+			2.用法
+				对所有通用
+			
+		5.群组选择器
+			1.示例
+			
+			2.用法
+			
+	4.CSS样式表的优先级
+		<style type="text/css">
+			#p1{
+				color: blue;
+			}
+			.pp{
+				color: orange;
+			}
+			*{
+				color: green;
+			}
+			p{
+				color: red;
+			}
+		</style>
+		<p class="pp" id="p1" style="color: slateblue;">猜猜我什么颜色</p>
+	
+		1.优先级
+			1.行内样式 > ID选择器 > 类选择器 > 标签选择器 > 通用选择器
+			2.内部样式表和外部样式表的优先级和书写的顺序有关，靠后的优先级别高
+		
+		2.权重值
+			1.通用选择器*
+				权重值 0
+			2.标签选择器 div, p...
+				权重值 1
+			3.类（别）选择器 .act, .nav...
+				权重值 10
+			4.ID选择器 #btn, #box...
+				权重值 100
+			5.行内样式
+				权重值 1000
+		
+		3.示例
+			#box p .tt	权重：100+1+10 = 111
+			#box .tt  	权重：100+10 = 110
+			选择器选择的范围越小越精确，优先级越高
+
+-------------------------------------------------------------------------------
+2.CSS基本属性
+	1.style="color: red; height: 30px; width: 80px; background-color: darkseagreen;"
+		color = "字体颜色"
+		height ="高度"
+		width = "宽度"
+		background-color = "背景颜色"
+		text-align = "文本对齐方式"
+
+	2.<body style="margin: 0;">
+		使主题贴边显示
+
+	3.<a href="#" style="text-decoration: none;">关于主页</a>
+		取消超链接文字的下划线
+		
+	4.<html style="background-color: #ddd;">
+		整个网页背景颜色
+		
+	5.border: solid 1px blue;
+		设置边框：样式 大小 颜色
+		solid	实线
+		dashed 	虚线
+		dotted	点线
+		
+	7.border-right
+		设置右边框
+		
+	8.border: none;
+		无边框
+		
+	9.margin: 0;
+		设置边距为0
+		
+-------------------------------------------------------------------------------
+3.span标签
+	1.用法
+		span，一个容器标签，不具备任何特殊功能，仅当作容器来使用。
+		用于包裹一段文字，便于给文本添加样式
+
+	2.示例
+		<span style="background-color: gray;color: white;font-size: 24px;">白岩松</span>
+		1.background-color: gray	容器背景颜色
+		2.color: white				字体颜色
+		3.font-size: 24px			字体大小
+		
+-------------------------------------------------------------------------------
+4.div标签
+	1.用法
+		一个通用容器标签，不具备任何特殊功能，仅当作容器来使用。
+		可以包裹任何内容，也可以容器直接互相包裹
+		
+	2.示例
+		<div style="color: #555; margin: auto;">标签</div>
+		1.margin:auto		容器居中对齐  
+		2.width = 500px;	设置容器宽度
+
+	3.特点
+		一个空div，默认宽度为100%，高度为0
+
+	4.line-height: 80px;
+		设置行高
+		字体默认16px
+		行高默认21px
+		
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------	
+5.CSS文本类属性
+
+
+
+	1.颜色
+		color:red;
+		
+	2.字体类型
+		font-famliy:"华文中宋"
+		
+	3.字体大小
+		font-size:16px
+		
+	4.文字加粗
+		font-weight:bold
+		
+	5.文字倾斜
+		font-style:italic
+		
+	6.首行缩进
+		text-indent:60px
+		
+	7.水平对齐方式
+		text-align:center
+		
+	8.行高
+		line-height:100px
+	
+	9.垂直居中
+		height:100px;
+		line-height:100px;
+		background-color；gray;
+		行高和高度一致，即垂直居中
+		
+	10.文本修饰
+		text-decoration:underline
+
+-------------------------------------------------------------------------------
+6.常见图片类型
+	1.jpg
+		采用有损压缩算法
+		体积较小
+		不支持透明
+		不支持动画
+		
+	2.gif
+		支持动画
+		只有全透明和不透明两种模式
+		只有256种颜色
+
+	3.png
+		采用无损压缩算法0
+		体积也相对较小
+		支持背景透明
+		不支持动画
+
+	4.svg
+		不会失真
+		只能保存颜色和形状相对简单的图片
+
+-------------------------------------------------------------------------------
+7.背景图片的使用
+	1.html ,body{
+		height: 100%;
+		margin: 0;
+	}
+		body默认宽为100%，高为一个单位
+		html和body同时设置height：100%才能使body高为100%
+		margin:0;表示略去下拉条，消除边距
+		
+	2.background-image: url(../img/1001294.jpg);
+		插入背景图片，默认无限平铺
+		background-repeat: no-repeat;表示不重复
+	
+	3.图片位置
+		background-position: right bottom;
+		第一个参数：水平位置
+		第二个参数：垂直位置
+		
+	4.background：
+		可以完成关于背景的所有内容
+	
+-------------------------------------------------------------------------------
+8.元素浮动
+	浮动元素会脱离网页文档，与其他元素发生重叠，但不会与文字内容发生重叠
+	1.示例
+		float: right ;
+		right:向右浮动
+		left:向左浮动
+	
+	2.父元素
+		.outer{
+			height: 200px;
+		}
+		<div class="outer">
+			<div id="a"></div>
+			<div id="b"></div>
+			<div id="c"></div>
+		</div>
+		父元素可以清除浮动元素对于后面元素的影响
+		
+		1.overflow: auto;
+			对于超出边界的元素，父元素做出自动的调整
+			
+		2.clear:left/right/both
+			清除浮动元素对当前元素的影响
+
+	3.浮动注意事项
+		1.浮动元素在排列时，只参考前一个元素位置即可
+			一行排不下时，下一行的元素会以前一个元素作为参考排列
+		2.浮动元素重叠问题
+			1.浮动元素不会覆盖文字内容
+			2.浮动元素不会覆盖图片内容，图片可以看作一个特殊文字
+			3.浮动元素不会覆盖表单元素（复选框等）
+
+-------------------------------------------------------------------------------
+9.盒模型
+	1.margin: auto;
+		自动设置边距，左右边距想等，达到居中效果，水平效果
+		
+	2.元素的边距
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+
+	3.填充
+		所谓填充，就是指向一个元素的内部，增加空间也称为"内边距"
+		和外边距不同的是，填充会改变元素大小，随着填充的增加，元素会被撑大
+		padding: 15px;
+		padding-top:15px;
+		padding-bottom:15px;
+		padding-left:15px;
+		padding-right:15px;
+	
+	4.盒模型
+		内容 -> 填充 -> 边框 -> 边距
+
+-------------------------------------------------------------------------------
+10.CSS属性的简写
+	1.background
+		background: gray url(xxx/xx.png) no-repeat;
+		分别是：背景颜色，背景图片，平铺方式
+		
+	2.border
+		border: 1px solid #D3f402;
+		分别是：边框宽度，边框样式，边框颜色
+		只有颜色可以省略，默认黑色
+		
+	3.font
+		font: italic bold 20px/35px arial,scans-serif,"微软雅黑";
+		斜体字，加粗，字号大小/行高 默认字体，备用字体，备用字体
+
+	4.margin
+		margin: 10px 15px 10px 15px
+		上，右，下，左一个都不可省略
+		margin: 10px 15px 10px	表示上，右下，左
+		margin: 10px 15px		表示上右，下左
+		margin: 10px 			表示上下左右
+		
+	5.padding
+		padding：10px 15px 10px 15px
+		上，右，下，左一个都不可省略（同上）
+		
+	6.颜色
+		color：DarkGoldenRod;
+		color:rgb(184,134,11);
+		color:#B8860B;

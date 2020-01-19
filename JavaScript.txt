@@ -1,0 +1,235 @@
+1.JavaScript简介
+	1.JS组成
+		1.ECMAScript
+		2.BOM	整个浏览器
+		3.DOM	document	整个文档，从<html>到</html>
+
+	2.简单语法
+		alert("hello world");      //在页面上弹出警告框，分号可以不加，建议加上
+		document.write("hello world"); //在当前页面上输出
+		
+	3.注意事项
+		1. JavaScript和HTML代码写在同一个文件中，执行顺序自上而下
+		2. 一般JavaScript代码写在head标签内，也可以写在任何地方
+		3. JavaScript可以多次出现，顺序执行
+		4. js代码可以从外部引入
+			1. 创建一个js文件
+			2. <script type="text/javascript" src="demo.js">***</script>
+			3. ***处代码无法执行，只能进行引入
+			4. type="text/javascript"可以省略不写
+			
+		5.document.write("</script>");
+			无法输出</script>
+			使用&lt和&gt分别代表左右尖括号
+			
+	4.注释
+		1.单行注释：//     快捷键：ctrl + /
+		2.多行注释：/**/	快捷键：ctrl + shift + /
+-------------------------------------------------------------------------------	
+2.常量变量
+	1.数据类型
+		1.基本数据类型
+			<1>数字		   number		   100,3.14
+			<2>字符串		string		    所有带双引号/单引号	"hello",'hello'
+			<3>布尔值		boolean			true,false
+			<4>特殊数据类型	   null undefined	  null空,undefined未申明
+		2.复合数据类型
+
+	2.声明变量
+		1. 通过关键字var来声明变量
+            var age = 18;
+            var name = "xxx",age = 20,sex = "男";
+        2. 可以同时复制多个变量
+            var web = a = b = "hello";
+            console.log(a,web,b);
+
+	3.标识符
+		1.以字母或下划线开头，不要使用$符号
+		2.严格区分大小写
+		3.标识符必须见名思意
+		
+	4.typeof
+		使用typeof可以看到变量名的类型
+		var age = 18;
+		alert(typeof age);//Number
+		
+	5.js是弱语言，赋值什么类型就是什么类型
+		但不要在后续的代码改变改变量的类型
+	
+---------------------------------------------------------------------------------------------------
+3.自动类型转换
+	1.任何类型的数据和字符串进行相加操作时都是拼接成了字符串
+		
+	2.任何数据和字符串做除加法以外的运算时
+		1.与NaN做算数运算时始终都是NaN
+		2.字符串如果是纯数字字符串则在运算过程中转成字符串，否则转换成NaN
+		
+		var tmp = 1-"2";//-1
+		alert(tmp);
+		var temp = 1-"2a";//NaN
+		alert(temp);
+
+---------------------------------------------------------------------------------------------------
+4.变量提升
+    function hd() {
+        if (false) {
+            var web = "hello";
+        }
+        console.log(web);
+    }
+    var web = "hello";会被拆成 var web;和web = "hello";
+    并把var web；提升到程序前面，所以web是undefined
+
+    所以建议var声明变量在程序前面声明
+    使用let定义变量就不会出现问题
+
+    function run(a = b, b = 3){}
+    run();
+    报错，因为b没有声明
+
+---------------------------------------------------------------------------------------------------
+5.全局污染
+    1.
+        function show(){
+            web = "houdunren.com";         
+        }   
+        show();
+        console.log(web);
+        不加var，let，const是全局变量，会改变全局变量的值
+        使用'use strict'严格模式，会解决影响
+
+    2.
+        var i = 99;
+        for (var i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        console.log(i);
+        i的值会方式改变，使用let替代var会解决影响
+
+    3.const常量声明
+        1. let和const都有块作用域的作用
+        2. const定义常量，变量名通常使用大写
+
+    4.window全局对象污染与重复声明
+        1.代码示例
+            var web = "hdcms";
+            console.log(window.web);
+        
+        2.代码解析
+            1. var声明的变量会存于window对象中，作为window的属性
+            2. 使用let声明的变量就不会存于window对象
+            
+    5.重复声明
+        1.代码示例
+            var a = 1;
+            var a = 2;
+
+        2.代码解析
+            1. 使用var重复声明变量没有报错
+            2. 使用let和const会报错
+
+
+---------------------------------------------------------------------------------------------------
+6.变量冻结Object.freeze();
+    1.代码示例
+        "use strict"
+        const HOST = {
+            url: "www.baidu.com",
+            port: 8080
+        };
+        Object.freeze(HOST);
+        HOST.port = 80;
+    
+    2.代码解析
+        1. Object.freeze(HOST); 冻结对象的变量，对象中的变量值不可更改
+        2. "use strict"     在严格模式下，修改变量值会报错
+
+---------------------------------------------------------------------------------------------------
+7.传值和传址
+    1.代码示例
+        let a = 1;
+        let b = a;
+        let e = {};
+        let f = e; 
+
+    2.代码解析
+        1. a与b是传值
+        2. e与f是传址
+
+---------------------------------------------------------------------------------------------------
+8.javascript细节知识
+    1.null和undefined
+        1. 引用类型初始为 null
+        2. 基本类型初始为 undefined
+        3. 没有返回值的函数返回 undefined
+
+    2.严格模式
+        1. 变量必须声明才可以使用
+        2. 严格模式在当前作用域受影响
+        3. 不可以使用关键字作为变量名
+
+    3.等于判断
+        1.代码示例
+            let a = 1;
+            let b = "1";
+            console.log(a == b);    //true
+            console.log(a === b);   //false
+
+        2.代码解析
+            1. == 会自动进行转型
+            2. === 不会进行转型
+
+    4.短路特性
+        1.代码示例 
+            let a = 6;
+            let b = 0;
+            let c = a || b;
+            let sex = prompt("请输入性别")||"保密";
+
+        2.代码解析
+            1. ||运算符会短路
+            2. 会返回真的值
+            3. prompt("");弹窗输入
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+9.案例
+    1.代码示例
+        <form action="https://www.houdunren.com" id="form">
+            用户名：<input type="text" name="user">
+            <hr>
+            <input type="checkbox" name="copyright">接受协议
+            <hr>
+            <button>提交</button>
+        </form>
+
+        <script>
+            "use strict"
+
+            function query(el) {
+                return document.querySelector(el);
+            }
+
+            query("#form").addEventListener("submit",
+                function (event) {
+                    let user = query("[name='user']").value.trim();
+                    let copyright = query("[name = 'copyright'").checked;
+                    console.log(copyright);
+                    if (!user || copyright == false) {
+                        event.preventDefault();
+                        alert("!!");
+                    }
+                });
+        </script>
+
+    2.代码解析
+        1. 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+
+
