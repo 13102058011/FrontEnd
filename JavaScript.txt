@@ -191,7 +191,8 @@
             2. 会返回真的值
             3. prompt("");弹窗输入
 
-
+    5.window.open('https://baidu.com','hdcms');
+        打开一个新窗口，网站为https://baidu.com，标记为hdcms
 
 
 
