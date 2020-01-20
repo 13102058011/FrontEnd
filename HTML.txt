@@ -476,17 +476,24 @@
 
 		
 	6.单选框详解
-		<p>性别：男<input type="radio" name="sex"/>女<input type="radio" name="sex" /></p>
-		一定要设置同一个name值才可以是单选
+		1.代码示例
+			<input type="radio" name="sex" id="girl" value="girl">
+            <label for="girl" >女孩</label>
+            <input type="radio" name="sex" id="boy" value="boy">
+            <label for="boy">男孩</label>
 		
+		2.代码解析 
+			1. 一定要设置同一个name值才可以是单选
+			2. label标签提高用户鼠标体验
+
 	7.textarea标签属性解析
 		1. 文本域指可以输入多行文本的表单，然更复杂的情况可以使用编辑器如ueditor、ckeditor等
-		2. rows=""			文本框窗口的高度，单位是字符
-		3. cols=""			文本框窗口的宽度，单位是字符
+		2. rows = "5"			文本框窗口的高度，单位是字符
+		3. cols = "4"			文本框窗口的宽度，单位是字符
 
 	8.label标签
 		1. 使用 label 用于描述表单标题，当点击标题后文本框会获得焦点，需要保证使用的ID在页面中是唯一的。
-		2. 也可以将文本框放在 label 标签内部，这样就不需要设置 id 与 for 属性了
+		2. 也可以将文本框放在 label 标签内部，这样就不需要设置 id 与 for 属性了(我自己的chrome不可以)
 
 	9.select标签
 		1.说明
