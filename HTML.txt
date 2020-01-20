@@ -435,7 +435,7 @@
 		4.<textarea rows="" cols=""></textarea>		多行文本框
 		
 	2.form标签内属性解析
-		1.name=""						规定表单的名称
+		1.name=""				   规定表单的名称
 		2.action = "提交地址"			表示提交地址，与后端对接
 		3.method="post/get"				规定用于发送 form-data 的 HTTP 方法
 		
@@ -471,7 +471,8 @@
 		10. type = "email"			-输入内容为邮箱
 		11. type = "tel"		   -电话号，移动端会调出数字键盘	
 		12. type = "search"			 搜索框
-		13. type = "hidden"			 隐藏表单
+		13. type = "hidden"			 隐藏表单,用于提交后台数据
+		14. type = "number"			 只能输入数字，会有上下箭头调整数字大小
 
 		
 	6.单选框详解
