@@ -479,23 +479,34 @@
 		1.代码示例
 			<input type="radio" name="sex" id="girl" value="girl">
             <label for="girl" >女孩</label>
-            <input type="radio" name="sex" id="boy" value="boy">
+            <input type="radio" name="sex" id="boy" value="boy" checked>
             <label for="boy">男孩</label>
 		
 		2.代码解析 
 			1. 一定要设置同一个name值才可以是单选
 			2. label标签提高用户鼠标体验
 
-	7.textarea标签属性解析
+	7.复选框详解
+		1.代码示例
+			<input type="checkbox" name="register[]" id="email" value="email">
+            <label for="email" >邮箱</label>
+            <input type="checkbox" name="register[]" id="tel" value="tel" checked>
+            <label for="tel">手机</label>
+
+		2.代码解析
+			1. name="register[]"	后台使用数组接受数据
+			2. label标签提高用户鼠标体验
+
+	8.textarea标签属性解析
 		1. 文本域指可以输入多行文本的表单，然更复杂的情况可以使用编辑器如ueditor、ckeditor等
 		2. rows = "5"			文本框窗口的高度，单位是字符
 		3. cols = "4"			文本框窗口的宽度，单位是字符
 
-	8.label标签
+	9.label标签
 		1. 使用 label 用于描述表单标题，当点击标题后文本框会获得焦点，需要保证使用的ID在页面中是唯一的。
 		2. 也可以将文本框放在 label 标签内部，这样就不需要设置 id 与 for 属性了(我自己的chrome不可以)
 
-	9.select标签
+	10.select标签
 		1.说明
 			下拉列表项可用于多个值中的选择
 
@@ -519,11 +530,32 @@
 			4. selected				选中状态
 			5. option	   	   	   选项值
 	
+	11.文件上传
+		1.说明
+			1. 文件上传有多种方式，可以使用插件或JS拖放上传处理
+			2. HTML本身也提供了默认上传的功能，只是上传效果并不是很美观
+
+		2.代码示例
+			<input type="file" name="image[]" multiple accept=".jpg">
+
+		3.代码解析
+			1. multiple			支持多选
+			2. accept=".jpg"	  -允许上传类型 .png/.psd
+			3. name="image[]"	   文件多选时使用数组接收
+
+	12.日期与时间
+		1.代码示例
+
+		2.代码解析
+
+
 	6.注意事项
 		1.form必须有action属性，表示提交地址
 		2.所有需要提交的数据，input必须有name属性
 		3.input按钮的文字，使用value属性表示
 		4.input必须放在form标签内才能提交
 
-	
+-------------------------------------------------------------------------------
+
+
 	
