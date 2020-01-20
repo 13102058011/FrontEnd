@@ -429,10 +429,10 @@
 	</form>
 	
 	1.代码解析
-		1.<form action="" method=""></form>		表单域
+		1.<form action="" method=""></form>		  表单域
 		2.<input type="text" value="" />		表单控件
-		3.<select></select>						下拉菜单
-		4.<textarea rows="" cols=""></textarea>	多行文本框
+		3.<select></select>				   下拉菜单
+		4.<textarea rows="" cols=""></textarea>		多行文本框
 		
 	2.form标签内属性解析
 		1.name=""						规定表单的名称
@@ -446,23 +446,33 @@
 		4.get请求不能提交大量数据，但post可以，因此不要混用
 	
 	4.input标签内属性解析
-		1.name=""						定义input元素的名称
-		2.id=""							作为标签的唯一标识
-		3.value="" 						规定input元素的值(初始值)
-		4.type = "text"					规定input元素的类型
-		5.placeholder=""				规定帮助用户填写输入字段的提示
-		6.disabled="disabled"/disabled	禁用选择
-		7.checked="checked"/checked		默认选择
+		01. name = ""				  定义input元素的名称，后台接收字段名
+		02. id = ""					 作为标签的唯一标识
+		03. value = "" 				  -规定input元素的值(初始值)
+		04. type = "text"				规定input元素的类型，表单类型默认为 text
+		05. placeholder = ""			 -规定帮助用户填写输入字段的提示
+		06. disabled				  -禁用选择
+		07. checked		   			  默认选择
+		08. required				  -必须输入
+		09. maxlength				   允许最大输入字符数
+		10. size					-表单显示长度，一般用不使用而用 css 控制
+		11. readonly				  -只读，可提交到后台
 		
 	5.type属性详解
-		1.type = "text"			文本输入框	
-		2.type = "password"		密码输入框	
-		3.type = "radio"		单选框	
-		4.type = "checkbox"		复选框		
-		5.type = "button"		普通按钮		
-		6.type = "submit"		提交按钮		
-		7.type = "reset"		重置按钮
-		8.type = "file"			文件选择框
+		01. type = "text"			文本输入框	
+		02. type = "password"		  密码输入框	
+		03. type = "radio"			-单选框	
+		04. type = "checkbox"		  复选框		
+		05. type = "button"			 普通按钮		
+		06. type = "submit"			 提交按钮		
+		07. type = "reset"			-重置按钮
+		08. type = "file"			文件选择框
+		09. type = "url"		   -输入内容为URL地址
+		10. type = "email"			-输入内容为邮箱
+		11. type = "tel"		   -电话号，移动端会调出数字键盘	
+		12. type = "search"			 搜索框
+		13. type = "hidden"			 隐藏表单
+
 		
 	6.单选框详解
 		<p>性别：男<input type="radio" name="sex"/>女<input type="radio" name="sex" /></p>
@@ -471,9 +481,17 @@
 	7.textarea标签属性解析
 		1.rows=""			文本框窗口的高度，单位是字符
 		2.cols=""			文本框窗口的宽度，单位是字符
+
+	8.label标签
+		1. 使用 label 用于描述表单标题，当点击标题后文本框会获得焦点，需要保证使用的ID在页面中是唯一的。
+		2. 也可以将文本框放在 label 标签内部，这样就不需要设置 id 与 for 属性了
+
 	
 	6.注意事项
 		1.form必须有action属性，表示提交地址
 		2.所有需要提交的数据，input必须有name属性
 		3.input按钮的文字，使用value属性表示
 		4.input必须放在form标签内才能提交
+
+	
+	
