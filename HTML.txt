@@ -545,9 +545,47 @@
 
 	12.日期与时间
 		1.代码示例
+			<input type="date" name="date" step="5" min="2019-01-01" max="2020-12-12">
+            <input type="week">
+            <input type="month">
 
 		2.代码解析
+			1. step="5"			间隔：date 缺省是1天，week缺省是1周，month缺省是1月
+			2. min="2019-01-01"		最小时间
+			3. max="2020-12-12"		最大时间
+			4. type="date" 		 -日期选择	
+			5. type="week"		 -周选择
+			6. type="month"		  月选择
 
+	13.搜索表单
+		1.代码示例
+			<input type="search" name="search">
+		
+		2.代码解析
+			文本框右侧有一个清空按钮
+
+	14.datalist标签
+		1.说明
+			input表单的输入值选项列表
+
+		2.代码示例
+			<input type="text" name="search" list="lesson">
+			<datalist id="lesson">
+                <option value="mysql">mysql</option>
+                <option value="java">java</option>
+                <option value="php">php</option>
+            </datalist>
+
+		3.代码解析
+			1. 在输入过程中的提示列表
+			2. input表单内使用list与datalist配对
+
+	15.历史数据的自动提示
+		1.代码示例
+			<input type="text" name="hdcms" autocomplete="on">
+		
+		2.代码解析
+			1. autocomplete="on"	on为开启历史数据自动提示，off为关闭
 
 	6.注意事项
 		1.form必须有action属性，表示提交地址
