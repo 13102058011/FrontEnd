@@ -28,6 +28,11 @@
 				rel="stylesheet"		用于定义文档关联，表示关联样式表
 				type="text/css"			定义文档的类型
 				
+		4.导入样式
+			使用 @import 可以在原样式规则中导入其他样式表，可以在外部样式、style标签中使用。
+			导入样式要放在样式规则前面定义。
+			@import url(../css/002.css);
+
 	3.CSS常用选择符
 		1.元素选择符
 			1.示例
@@ -64,6 +69,46 @@
 			2.用法
 				对所有通用
 			
+		5.属性选择器
+			1.说明
+				根据属性来为元素设置样式也是常用的场景。
+
+			2.示例
+				[attribute]		[target]		选择带有 target 属性所有元素
+				[attribute=value]  [target=_blank]	  -选择 title 属性包含单词 "flower" 的所有元素
+				[attribute~=value] -[title~=flower]	   -选择 title 属性包含单词 "flower" 的所有元素
+				[attribute|=value] -[lang|=en]		 选择 lang 属性值以 "en" 开头的所有元素。
+				[attribute*=value] -a[src*="abc"]	  -选择其 src 属性中包含 "abc" 子串的每个 元素
+				[attribute^=value] -a[src^="https"]	   -选择其 src 属性值以 "https" 开头的每个 元素
+				[attribute$=value] -a[src$=".pdf"]	   选择其 src 属性以 ".pdf" 结尾的所有 元素
+		
+		6.伪类选择器
+			1.说明
+				为元素的不同状态或不确定存在的元素设置样式规则。
+
+			2.示例
+				状态	 	示例	 			说明
+				:link	 		a:link			 选择所有未被访问的链接
+				:visited	 	 -a:visited			-选择所有已被访问的链接
+				:hover	    	-a:hover		  -鼠标移动到元素上时
+				:active		 	 a:active		   点击正在发生时
+				:focus			-input::focus		 选择获得焦点的 input 元素
+				:root			:root			-选择文档的根元素即html
+				:empty			-p:empty		  -选择没有子元素的每个元素（包括文本节点）
+				:first-child   	   -p:first-child		-选择属于父元素的第一个子元素的每个元素
+				:last-child	   	   p:last-child		   选择属于其父元素最后一个子元素每个元素
+				:first-of-type		-p:first-of-type	  -选择属于其父元素的首个元素的每个元素
+				:last-of-type		p:last-of-type		 选择属于其父元素的最后元素的每个元素
+				:only-of-type		p:only-of-type		 选择属于其父元素唯一的元素的每个元素
+				:only-child	   	   p:only-child		   选择属于其父元素的唯一子元素的每个元素
+				:nth-child(n)		p:nth-child(2)		 选择属于其父元素的第二个子元素的每个元素
+				:nth-child(odd)	 	 p:nth-child(odd)	   选择属于其父元素的奇数元素
+				:nth-child(even) 	 -p:nth-child(even)		-选择属于其父元素的偶数元素
+				:nth-of-type(n)	 	 p:nth-of-type(2)	   选择属于其父元素第二个元素的每个元素
+				:nth-last-child(n)	  -p:nth-last-child(2)	  -同上，从最后一个子元素开始计数。
+				:nth-last-of-type(n)   -p:nth-last-of-type(2)	-同上，但是从最后一个子元素开始计数。
+				:not(selector)		-:not(p)		  -选择非元素的每个元素
+
 		5.群组选择器
 			1.示例
 			
