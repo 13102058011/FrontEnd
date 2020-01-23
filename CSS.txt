@@ -390,3 +390,62 @@
 		color：DarkGoldenRod;
 		color:rgb(184,134,11);
 		color:#B8860B;
+
+-------------------------------------------------------------------------------
+11.颜色
+	1. rebeccapurple	  雷贝卡紫色
+	2. royalblue		宝蓝色
+	3. rosybrown		玫瑰棕色
+	4.
+
+
+
+-------------------------------------------------------------------------------
+13.文本控制
+	1.文本颜色
+		1.字符串颜色
+			color: red;
+			可以使用如 red | green 等字符颜色声明
+
+		2.使用十六进制网页颜色
+			color: #ddffde;
+			如果颜色字符相同如 #dddddd 可以简写为 #ddd
+
+		3.使用RGB颜色
+			color: rgb(38, 149, 162);
+
+		4.透明颜色
+			color: rgba(38, 149, 162, .2);
+			透明色从 0~1 间，表示透明到不透明
+
+	2.行高定义
+		line-height: 1.5em;	1.5倍行高
+
+	3.文本阴影
+		1.代码示例
+			text-shadow: rgba(13, 6, 89, 0.8) 3px 3px 5px;
+
+		2.代码解析
+			参数顺序为：颜色，水平偏移，垂直偏移，模糊度
+
+	4.文本线条
+		1.代码示例
+			text-decoration: none;
+		
+		2.参数解析
+			1. none			无线条
+			2. underline	  -下划线
+			3. line-through	    删除线
+			4. overline		  上划线
+
+	5.大小写转换
+		1. font-variant: small-caps;		小号大写字母
+		2. text-transform: capitalize;		 首字母大写	
+		3. text-transform: uppercase;		-全部大写
+		4. text-transform: lowercase;  		-全部小写
+
+	6.倾斜风格
+		1. font-style: italic;		文本倾斜
+		2. font-style: normal;		无倾斜
+
+
