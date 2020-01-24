@@ -448,4 +448,26 @@
 		1. font-style: italic;		文本倾斜
 		2. font-style: normal;		无倾斜
 
+	7.空白处理
+		1. white-space: pre;		保留文本中的所有空白，类似使用 pre 标签
+		2. white-space: nowrap		 禁止文本换行
+		3. white-space: pre-wrap	  保留空白，保留换行符
+		4. white-space: pre-line	  空白合并，保留换行符
 
+	8.文本溢出
+		1.代码示例
+			div{
+				white-space: nowrap;
+				border: solid 1px #dddddd;
+				width: 300px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+        	}
+
+		2.代码解析
+			1. overflow: hidden;		溢出隐藏
+			2. white-space: nowrap;		 -禁止换行
+			3. text-overflow: ellipsis;	   -溢出显示省略符号
+
+
+-------------------------------------------------------------------------------
