@@ -360,6 +360,19 @@
 	4.盒模型
 		内容 -> 填充 -> 边框 -> 边距
 
+	5.圆角
+		1. border-radius: 5px;
+        2. border-radius: 50%;	画圆
+
+	6.display
+		1.说明
+			使用 display 控制元素的显示机制。
+
+		2.属性解析
+			1. none			隐藏元素
+			2. block	    -显示为块元素
+			3. inline		 显示为行元素，不能设置宽/高
+			4. inline-block		行级块元素，允许设置宽/高f
 -------------------------------------------------------------------------------
 10.CSS属性的简写
 	1.background
@@ -396,7 +409,7 @@
 	1. rebeccapurple	  雷贝卡紫色
 	2. royalblue		宝蓝色
 	3. rosybrown		玫瑰棕色
-	4.
+	4. blueviolet		-蓝紫色
 
 
 
@@ -469,5 +482,39 @@
 			2. white-space: nowrap;		 -禁止换行
 			3. text-overflow: ellipsis;	   -溢出显示省略符号
 
+	9.文本缩进
+		text-indent: 2em;
+
+	10.文本对齐
+		1.水平对齐
+			1. text-align: center;		文本居中对齐
+			2. text-align: right;	   -文本向右对齐
+
+		2.垂直对齐
+			1. vertical-align: top;	 	  -顶部对齐
+			2. vertical-align: middle;		图像在段落中居中对齐
+			3. vertical-align: bottom;		底部对齐
+
+	11.排版模式
+		1.字符间隔
+			1. word-spacing: 2em;		单词间隔
+			2. letter-spacing: 3em;		 字符间隔
+
+		2.排版模式
+			1. writing-mode: horizontal-tb		 水平方向自上而下的书写方式
+			2. writing-mode: vertical-rl		垂直方向自右而左的书写方式
+			3. writing-mode: vertical-lr		垂直方向内内容从上到下，水平方向从左到右
 
 -------------------------------------------------------------------------------
+14.背景处理
+	1.背景颜色
+		1. 背景颜色可以使用 rga | rgba | 十六进制 等颜色格式
+		2. background-color: blueviolet;
+
+	2.背景图片
+		1. 可以使用 png| gif |jpeg 等图片做为背景使用
+		2. background-image: url(../img/css_background.webp);
+
+	3.背景裁切
+
+
