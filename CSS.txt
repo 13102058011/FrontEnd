@@ -516,5 +516,29 @@
 		2. background-image: url(../img/css_background.webp);
 
 	3.背景裁切
+		1.说明
+			使用 background-clip 可以控制背景的填充位置
+		
+		2.属性列表
+			border-box		包括边框
+			padding-box		-不含边框，包括内边距
+			content-box		-内容区域
+
+	4.背景重复
+		1.说明
+			使用 background-repeat 设置背景重复的规则
+		
+		2.属性列表
+			1. repeat		水平、垂直重复
+			2. repeat-x		 水平重复
+			3. repeat-y		 垂直重复
+			4. no-repeat	 -不重复
+			5. space	   -背景图片对称均匀分布
+
+	5.背景滚动
+		1.说明
+
+		2.属性列表
+				
 
 
