@@ -537,8 +537,76 @@
 
 	5.背景滚动
 		1.说明
+			使用 background-attachment 设置在页面滚动时的图片处理方式
+			
+		2.属性列表
+			1. scroll	-背景滚动
+			2. fixed	背景固定		
+
+	6.背景位置
+		1.说明
+			使用 background-position 用于设置背景图片的水平、垂直定位
+		
+		2.属性列表
+			left		左对齐
+			right		-右对齐
+			center	     居中对齐
+			top		   -顶端对齐
+			bottom		 底部对齐
+			5px 5px		 水平、垂直设置
+			50% 50%		 水平、垂直设置
+
+	7.背景尺寸
+		1.说明
+			使用 background-size 调整背景尺寸
 
 		2.属性列表
-				
+			cover		背景完全覆盖，可能会有背景溢出
+			contain		 图片不溢出的放在容器中，可能会漏出部分区域
+			100px auto	  调整宽高
+			100px 100px	  -调整宽高
+
+	8.多个背景
+		1.后定义的背景置于底层
+			background-image: url(xj-small.png), url(bg.png);
+
+		2.多属性定义
+			background-image: url(xj-small.png), url(bg.png);
+			background-repeat: no-repeat;
+			background-position: top left, right bottom;
+
+		3.可以一次定义多个背景图片
+			background: url(xj-small.png) left 50% no-repeat,
+                url(bg.png) right 100% no-repeat red;
+
+	9.组合设置
+		1. 可以使用一条指令设置背景
+		2. background: red url(xj-small.png) no-repeat right 50% fixed;
+
+
+	10.盒子阴影
+		1.说明
+			可以使用 box-shadow 对盒子元素设置阴影，参数为 水平偏移,垂直偏移,模糊度,颜色 构成
+		
+		2.示例
+			box-shadow: 10px 10px 10px rgba(100, 100, 100, .5);
+
+	11.颜色渐变
+		1.线性渐变
+			向下渐变	background: linear-gradient(green,blue);
+			渐变角度	background: linear-gradient(30deg, red, green);
+			向右渐变	background: linear-gradient(to right, red, green)
+			向左渐变	background: linear-gradient(to left, red, green);
+			左上渐变	background: linear-gradient(to top left, red, green);
+			右下渐变	background: linear-gradient(to right bottom, red, green);
+			多个颜色	background: linear-gradient(red, rgb(0, 0, 200), green, rgba(122, 211, 100, 0));
+		
+		2.径向渐变
+			设置渐变		background: radial-gradient(red, blue, green);
+			设置渐变宽度与高度	 background: radial-gradient(100px 200px, red, blue, green);
+			左下渐变		background: radial-gradient(at bottom left, red, blue);
+			右下渐变		background: radial-gradient(at bottom right, red, blue);
+			左侧向中心渐变	   background: radial-gradient(at center left, red, blue);
+			底部向中心渐变	   background: radial-gradient(at 50% 100%, red, blue);
 
 
