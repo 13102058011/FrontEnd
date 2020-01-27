@@ -609,4 +609,24 @@
 			左侧向中心渐变	   background: radial-gradient(at center left, red, blue);
 			底部向中心渐变	   background: radial-gradient(at 50% 100%, red, blue);
 
+	12.标识位
+		1.说明
+			颜色未指定标识时，颜色会平均分布。
+
+		2. background: linear-gradient(45deg,red 50%, blue 50%);
+
+	13中间点
+		设置渐变中心点的位置
+		background: linear-gradient(45deg, red, 50%, blue);
+
+	14.进度条绘制
+		background: repeating-linear-gradient(90deg,red ,25px,yellow 25px,25px,blue 50px);
+
+-------------------------------------------------------------------------------
+15.数据样式
+	1.		
+
+
+
+
 
