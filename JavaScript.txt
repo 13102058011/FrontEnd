@@ -211,7 +211,32 @@
                 }
             }
 
-    2.for
+    2.for/in
+        1.说明
+            用于遍历对象的所有属性，for/in主要用于遍历对象，不建议用来遍历数组
+
+        2.代码示例
+            let info = {
+                name: "后盾人",
+                url: "houdunren.com"
+            };
+            for (const key in info) {
+                if (info.hasOwnProperty(key)) {
+                    console.log(info[key]);
+                }
+            }
+
+    3.for/of
+        1.说明
+            用来遍历 Arrays（数组）, Strings（字符串）, Maps（映射）, Sets（集合）等可迭代的数据结构。
+            与 for/in 不同的是 for/of 每次循环取其中的值而不是索引。
+
+        2.代码示例
+            let arr = [1, 2, 3];
+            for (const iterator of arr) {
+                console.log(iterator);
+            }
+            
 ---------------------------------------------------------------------------------------------------
 9.案例
     1.代码示例
