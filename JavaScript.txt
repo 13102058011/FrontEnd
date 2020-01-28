@@ -236,7 +236,50 @@
             for (const iterator of arr) {
                 console.log(iterator);
             }
-            
+
+---------------------------------------------------------------------------------------------------
+10.基本类型
+    1.typeof
+        1.说明
+            可以使用typeof用于判断数据的类型
+
+        2.typeof 用于返回以下原始类型
+            1. 基本类型：number/string/boolean
+            2. function
+            3. object
+            4. undefined
+
+    2.instanceof
+        instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+        也可以理解为是否为某个对象的实例，typeof不能区分数组，但instanceof则可以。instanceof
+        instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+        也可以理解为是否为某个对象的实例，typeof不能区分数组，但instanceof则可以。
+
+    3.字符串
+        1.声明定义
+            1.使用对象形式创建字符串
+                let hd = new String('houdunren');
+                // 获取字符串长度
+                console.log(hd.length);
+                // 获取字符串
+                console.log(hd.toString());
+
+            2.简写方式       
+                let content = '后盾人';
+                console.log(content);
+
+        2.转义符号
+            1.说明
+                有些字符有双层含义，需要使用 \ 转义符号进行含义转换。
+                下例中引号为字符串边界符，如果输出引号时需要使用转义符号。
+
+            2.常用转义符号列表
+                \t	    制表符
+                \n	    换行
+                \\	    斜杠符号
+                \'	    单引号
+                \"	    双引号R
+
 ---------------------------------------------------------------------------------------------------
 9.案例
     1.代码示例
