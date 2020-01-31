@@ -624,9 +624,84 @@
 
 -------------------------------------------------------------------------------
 15.数据样式
-	1.		
+	1.定制表格
+		1.说明
+			除了使用 table 标签绘制表格外，也可以使用 display 样式绘制。		
 
+		2.属性
+			table			对应 table
+			table-caption		对应 caption
+			table-row		  对表 tr
+			table-row-group		 对应 tbody
+			table-header-group	  -对应 thead
+			table-footer-group	  -对应 tfoot
 
+	2.列表
+		1.列表符号
+			1.说明
+				使用 list-style-type 来设置列表样式，规则是继承的，所以在ul 标签上设置即可。
 
+			2.属性列表
+				none				无标记。
+				disc				默认。标记是实心圆。
+				circle				 标记是空心圆。
+				square				 标记是实心方块。
+				decimal				 -标记是数字。
+				decimal-leading-zero		0开头的数字标记。(01, 02, 03, 等。)
+				lower-roman			   -小写罗马数字(i, ii, iii, iv, v, 等。)
+				upper-roman			   -大写罗马数字(I, II, III, IV, V, 等。)
+				lower-alpha			   -小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)
+				upper-alpha			   -大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)
+				lower-greek			   -小写希腊字母(alpha, beta, gamma, 等。)
+				lower-latin			   -小写拉丁字母(a, b, c, d, e, 等。)
+				upper-latin			   -大写拉丁字母(A, B, C, D, E, 等。)
+				hebrew			     传统的希伯来编号方式
+				armenian			  传统的亚美尼亚编号方式
+				georgian			  传统的乔治亚编号方式(an, ban, gan, 等。)
+				cjk-ideographic			 -简单的表意数字
+				hiragana			  标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）
+				katakana			  标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）
+				hiragana-iroha			 标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）
+				katakana-iroha			 标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）
 
+-------------------------------------------------------------------------------
+16.浮动布局
+	1.float	
+		1.说明
+			float 属性定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。浮动元素会生成一个块级框，而不论它本身是何种元素
+			使用浮动可以控制相邻元素间的排列关系
+
+		2.属性解析
+			left	向左浮动
+			right	-向右浮动
+			none	不浮动
+	2.浮动介绍	
+		1. 没有设置浮动的块元素是独占一行的
+		2. 浮动会对后面的元素产生影响，浮动的元素会丢失自身空间
+		3. 如果只给第一个元素设置浮动，第二个元素不设置，后面的元素会占用第一个元素空间
+		4. 两个元素都设置浮动后，会并排显示
+		5. 浮动元素边界不能超过父元素的padding
+		6. 行元素如span浮动后会变为块元素，所以浮动后的元素可以设置宽高
+
+	3.清除浮动
+		1.clear属性
+			left	-左边远离浮动元素
+			right	 右连远离浮动元素
+			both	-左右都远离浮动元素	
+
+		2.在父元素内部最后面添加一个没有高度的了元素，并使用clear:both
+			main::after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+
+		3.overflow
+			1.说明
+				子元素使用浮动后将不占用空间，这时父元素高度为将为零。
+				通过添加父元素并设置 overflow 属性可以清除浮动
+				将会使用父元素产生 BFC 机制，即父元素的高度计算会包括浮动元素的高度
+
+			2.示例
+				overflow: hidden/auto;
 
