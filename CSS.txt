@@ -705,3 +705,35 @@
 			2.示例
 				overflow: hidden/auto;
 
+	4.形状浮动
+		1.说明
+			通过形状浮动可以让内容围绕图片，类似于我们在word 中的环绕排版。要求图片是有透明度的PNG格式
+			使用 shape-outside 属性控制环绕距离
+		
+		2.属性列表
+			margin-box		-外边距环绕
+			padding-box		 内边距环绕
+			border-box		-边线环绕
+			content-box		 内容环绕
+
+	5.显示区域
+		1.说明
+			使用 clip-path 可以控制显示区域的形状
+		
+		2.属性列表
+			clip-path: circle(50% at center);			圆形
+			clip-path: ellipse(50% 80% at 100% 0);		 -椭圆形
+			clip-path: polygon(50% 0, 100% 100%, 0 100%)	多边形
+
+	6.环绕模式
+		1.说明
+			使用 shape-outside 属性控制环绕模式
+			
+		2.属性列表
+			circle		圆形环绕
+			ellipse		-椭圆环绕
+			url		  -图片环绕
+			polygan		-多边环绕
+
+
+
