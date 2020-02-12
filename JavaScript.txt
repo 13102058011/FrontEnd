@@ -334,7 +334,7 @@
             1. 标签模板是提取出普通字符串与变量，交由标签函数处理   
             2. tag是标签，对应标签函数   
 
-    7.字符串常用函数
+    7.字符串常用函数 (name = "houdunren")
         1.获取字符串长度
             1. name.length
 
@@ -352,11 +352,75 @@
             2. name[3];          -使用数字索引获取字符串 
 
         5.截取字符串
-            1. name.slice(1);
-            1. name.
+            1. slice()
+                1.name.slice(1)     从指定索引位置开始截取(oudunren)
+                2.name.slice(-3)    -负数代表倒序(ren)
+                3.name.slice(1,3)    指定索引的截取(ou)
+                4.name.slice(-3,-1)   指定索引的倒序(re)
 
+            2. substr()
+                1.name.substr(1)     从指定索引位置开始截取(oudunren)
+                2.name.substr(-3)    -负数代表倒序(ren)
+                3.name.substr(1,3)    从第一个索引处向后截取3个字符(oud)
+                4.name.substr(-1,-3)   没有意义()
+                5.name.substr(-3,2)   -截取2个字符(re)
 
+            3.substring()
+                1.name.substring(1)     从指定索引位置开始截取(oudunren)
+                2.name.substring(-3)    -负数都会当作0来处理(houdunren)
+                3.name.substring(1,3)    指定索引的截取(ou)
+                4.name.substring(-3,-1)   没有意义()
 
+        6.字符串检索
+            1.indexOf() 从开始获取字符串位置，检测不到时返回 -1,第二个参数指查找开始位置
+                1.name.indexOf("d")     
+                2.name.indexOf("d",4)    
+
+            2.includes() 字符串中是否包含指定的值，第二个参数指查找开始位置, 找到返回 true 反之为 false
+                1.name.includes("d")    
+                2.name.includes("d",4)   
+
+            3.lastindexOf() 从右侧查找,同indexOf
+                
+            4.startsWith() 判断是否是指定位置开始，第二个参数为查找的开始位置
+                1.name.startsWith('h')//true
+                2.name.startsWith('o', 1)//true
+
+            5.endsWith() 是否是指定位置结束，第二个参数为查找的结束位置。
+                name.endsWith('com') //true
+                name.endsWith('o', 2) //true
+
+        7.替换字符串
+            1. replace() 方法用于字符串的替换操作
+            2. name.replace(name,"tonydon")
+        
+        8.重复生成
+            function star(num = 3) {
+                return '*'.repeat(num);
+            }
+            console.log(star());
+
+        9.类型转换
+            1.分隔字母
+                let name = "hdcms";
+                console.log(name.split(""));
+
+            2.将字符串转换为数组
+                console.log("1,2,3".split(",")); //[1,2,3]
+
+            3.隐式类型转换会根据类型自动转换类型
+                let hd = 99 + '';
+                console.log(typeof hd); //string
+
+            4.使用 String 构造函数可以显示转换字符串类型
+                let hd = 99;
+                console.log(typeof String(hd));
+
+            5.js中大部分类型都是对象，可以使用类方法 toString转化为字符串
+                let hd = 99;
+                console.log(typeof hd.toString()); //string
+                let arr = ['hdcms', '后盾人'];
+                console.log(typeof arr.toString()); //string
 
 ---------------------------------------------------------------------------------------------------
 9.案例
