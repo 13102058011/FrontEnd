@@ -33,8 +33,13 @@
     but it does not affect the value of the output from the code itself.
     评估过程可能会影响这里显示的结果，但它不会影响代码本身的输出值。
 
+9.  
+    To see this and other security events for your account, visit https://github.com/settings/security
+    要查看此事件和您的帐户的其他安全事件，请访问https://github.com/settings/security
 
-
+10.    
+    If you run into problems, please contact support by visiting https://github.com/contact
+    如果您遇到问题，请访问https://github.com/contact联系支持
 
 
 

@@ -849,9 +849,67 @@ JSON
 
 
 ---------------------------------------------------------------------------------------------------
-DOM
-    1.
+HTML DOM
+    1.介绍
+        DOM 是Document Object Model( 文档对象模型 )的缩写。
+        DOM是把html里面的各种数据当作对象进行操作的一种思路。
+        比如一个超链，作为一个DOM对象，就可以使其隐藏，修改其href指向的地址
 
+    2.节点概念
+        1.说明
+            DOM把所有的html都转换为节点
+            整个文档 是一个节点
+            元素 是节点
+            元素属性 是节点
+            元素内容 是节点
+            注释 也是节点
+
+        2.代码示例
+            <div id="d1">hello HTML DOM</div>
+            
+            function p(s){
+                document.write(s);
+                document.write("<br>");
+            }
+            var  div1 = document.getElementById("d1");
+            p("文档节点"+document);
+            p("元素"+div1);
+            p("属性节点"+div1.attributes[0]);
+            p("内容节点"+div1.childNodes[0]);
+
+    3.获取节点
+        1.通过id获取元素节点
+            1.说明
+                在设计html的时候，一个元素对应的id应该是唯一的。
+                可以通过 document.getElementById("") 获取某个元素对应的元素节点对象
+
+            2.示例
+                <div id="d1">hello HTML DOM</div>
+                var  div1 = document.getElementById("d1");
+
+        2.通过标签名称获取元素节点
+            1.说明
+                所有的元素都有标签名
+                通过 document.getElementsByTagName("") 根据标签名称获取一个元素数组。
+
+            2.示例
+                <div >hello javascript</div>
+                <div >hello BOM</div>
+                <div >hello DOM</div>
+
+                var  divs = document.getElementsByTagName("div");
+                for(i=0;i<divs.length;i++){
+                document.write(divs[i]);
+                document.write("<br>");
+                }
+
+        3.通过类名获取元素节点
+            1.说明
+                与 getElementsByTagName 类似的
+                也可以通过 document.getElementsByClassName("") 根据class返回一个节点数组
+
+            2.示例
+                
 
 
 
