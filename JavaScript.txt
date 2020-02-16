@@ -194,6 +194,20 @@
     5.window.open('https://baidu.com','hdcms');
         打开一个新窗口，网站为https://baidu.com，标记为hdcms
 
+    6.prompt() 
+        1.说明
+            方法用于显示可提示用户进行输入的对话框。
+
+        2.语法
+            prompt(text,defaultText)
+        
+        3.参数 
+            text        -可选。要在对话框中显示的纯文本（而不是 HTML 格式的文本）。 
+            defaultText     可选。默认的输入文本。 
+
+        4.返回
+            如果用户单击提示框的取消按钮，则返回 null。如果用户单击确认按钮，则返回输入字段当前显示的文本
+
 ---------------------------------------------------------------------------------------------------
 9.循环
     1.标签循环
@@ -423,6 +437,305 @@
                 console.log(typeof arr.toString()); //string
 
 ---------------------------------------------------------------------------------------------------
+12.Boolean
+    1.声明定义
+        1.使用对象形式创建布尔类型
+            let bol = new Boolean(true);
+
+        2.但建议使用字面量创建布尔类型
+            let bol = true;
+
+    2.隐式转换
+        1.说明
+            基本上所有类型都可以隐式转换为 Boolean类型。
+            当与boolean类型比较时，会将两边类型统一为数字1或0
+
+        2.详解
+            数据类型	    true	        false
+            String	      非空字符串	     空字符串
+            Number	      非0的数值	        -NaN, 0
+            Array	     -数组不参与比较时	    参与比较的空数组
+            Object	      所有对象	
+            undefined	   -无	           undefined
+            null	     无	            null
+            NaN	        -无	            NaN
+
+    3.显式转换
+        1.使用 !! 转换布尔类型
+            let hd = '';
+            console.log(!!hd); //false
+
+        2.使用 Boolean 函数可以显式转换为布尔类型
+            let hd = '';
+            console.log(Boolean(hd)); //false
+
+
+    4.实例操作
+        下面使用Boolean类型判断用户的输入，并给出不同的反馈。
+
+        while (true) {
+        let n = prompt("请输入后盾人成立年份").trim();
+        if (!n) continue;
+        alert(n == 2010 ? "回答正确" : "答案错误！看看官网了解下");
+        break;
+        }
+
+---------------------------------------------------------------------------------------------------
+13.Number
+    1.声明定义
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+14.数组
+    1.创建数组  
+        1.使用对象方式创建数组
+            console.log(new Array(1, '后盾人', 'hdcms')); //[1, "后盾人", "hdcms"]
+
+        2.使用字面量创建是推荐的简单作法
+            const array = ["hdcms", "houdunren"];
+
+        3.多维数组定义
+            const array = [["hdcms"], ["houdunren"]];
+            console.log(array[1][0]);
+
+        4.数组是引用类型可以使用const声明并修改数组的值
+            const array = ["hdcms", "houdunren"];
+            array.push("houdunwang");
+
+        5.使用原型的 length属性可以获取数组元素数量
+            let hd = ["后盾人", "hdcms"];
+            console.log(hd.length); //2
+
+        6.数组可以设置任何值，下面是使用索引添加数组
+            let hd = ["后盾人"];
+            hd[1] = "hdcms";
+
+        7.下面直接设置3号数组，会将1/2索引的数组定义为空值
+            let hd = ["后盾人"];
+            hd[3] = "hdcms";
+            console.log(hd.length); //4
+
+        8.声明多个空元素的数组
+            let hd = new Array(3);
+            console.log(hd.length);
+            console.log(hd);
+
+    2.查看数组
+        1.使用console.log()
+        2.使用console.table()
+    
+    3.Array.of
+        1.说明
+            使用Array.of 与 new Array 不同是设置一个参数时不会创建空元素数组
+            let arr = new Array(6); 会创建6个空元素
+
+        2.代码示例
+            let hd = Array.of(3);
+            console.log(hd); //[3]
+
+            hd = Array.of(1, 2, 3);
+            console.log(hd); //[1, 2, 3]
+
+    4.类型检测
+
+
+    5.展开语法
+        1.说明
+            展开语法可以将一个数组展开, 常用于数组合并, 也可作为函数参数来接收多个参数
+
+        2.代码示例
+            1.数组合并
+                let arr = ['html', 'css'];
+                let hd = ['js', 'java'];
+                arr = [...arr, ...hd];     
+
+            2.函数参数
+                function sum(...args) {
+                    return args.reduce((s, v) => {
+                        return (s += v);
+                    }, 0)
+                }
+                console.log(sum(1, 2, 3));
+
+    6.解构赋值
+        1.说明
+            一种方便赋值的语法
+        
+        2.用于数组赋值
+            let arr  = ['tonydon',2020];
+            let [name,year] = arr;
+            console.log(name,year);
+
+        3.和展开语法使用
+            let arr  = ['tonydon',2020,'老唐'];
+	        let [name, ...args] = arr;
+            //后面的值都会赋予 args 数组中
+
+        4.字符串解构
+            let [...a] = "tonydon.com";
+	        console.log(a);
+            //字符串被拆分成字符数组存储到 a 中
+
+        5.只赋值部分变量
+            let [,url]=['后盾人','houdunren.com'];
+            console.log(url);//houdunren.com
+
+        6.为变量设置默认值
+            let [name, site = 'hdcms'] = ['后盾人'];
+            console.log(site); //hdcms
+
+        7.数组参数的使用
+            function hd([a, b]) {
+                console.log(a, b);
+            }
+            hd(['后盾人', 'hdcms']);
+
+    7.添加元素的多种操作技巧
+        1.利用 length 属性
+            let arr = [1, "后盾人", "hdcms"];
+            arr[arr.length] = 'houdunren.com';
+            console.log(arr); //[1, "后盾人", "hdcms", "houdunren.com"]
+
+        2.使用展示语法批量添加元素
+            let arr = ["后盾人", "hdcms"];
+            let hd = ["houdunren"];
+            hd.push(...arr);
+            console.log(hd);
+
+    8.数组常用方法
+        1.push
+            1.说明
+                压入元素，直接改变元数组，返回值为数组元素数量
+
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.push('向军大叔', 'houdunren')); //4
+                console.log(arr); //["后盾人", "hdcms", "向军大叔", "houdunren"]
+
+        2.pop
+            1.说明
+                从末尾弹出元素，直接改变元数组，返回值为弹出的元素
+
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.pop()); //hdcms
+                console.log(arr); //["后盾人"]
+
+        3.shift
+            1.说明
+                从数组前面取出一个元素
+
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.shift()); //后盾人
+                console.log(arr); //["hdcms"]
+
+        4.unshift
+            1.说明
+                从数组前面添加元素
+
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.unshift('向军大叔', 'houdunren')); //4
+                console.log(arr); //["向军大叔", "houdunren", "后盾人", "hdcms"]
+        
+        5.fill
+            1.说明
+                使用 fill 填充数组元素
+
+            2.使用方法
+                1.全部填充
+                    console.dir(Array(3).fill("后盾人")); //["后盾人", "后盾人", "后盾人", "后盾人"]
+
+                2.部分填充
+                    console.log([1, 2, 3, 4].fill("后盾人", 1, 2)); //[1, "后盾人", 3, 4]
+
+        6.slice            
+            1.说明
+                使用 slice 方法从数组中截取部分元素组合成新数组（并不会改变原数组）
+                不传第二个参数时截取到数组的最后元素。
+            
+            2.使用方法
+                let arr = [0, 1, 2, 3, 4, 5, 6];
+                console.log(arr.slice(1, 3)); // [1,2]
+
+        7.splice()
+            1.说明
+                splice() 方法可删除从 index 处开始的零个或多个元素，
+                并且用参数列表中声明的一个或多个值来替换那些被删除的元素。
+            
+            2.语法
+                arrayObject.splice(index,howmany,element1,.....,elementX)参数 描述 
+
+            3.参数
+                index      需。规定从何处添加/删除元素该参数是开始插入和（或）删除的数组元素的下标，必须是数字。
+                howmany     必需。规定应该删除多少元素。必须是数字，但可以是 "0",如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。
+                element1    -可选。规定要添加到数组的新元素。从 index 所指的下标处开始插入。 
+                elementX    -可选。可向数组添加若干元素。 
+
+            4.返回值
+                如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组。
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+对象
+    创建元素
+        let person = {
+            name : 'hello',
+            age:3,
+            email: "olddon@qq.com"
+        };
+
+    删除元素
+        delete person.email;
+    
+    添加元素
+	    person.qq = 1400615611;
+
+    判断属性值是否在对象中
+        'name' in person 返回布尔值
+
+    
+
+
+---------------------------------------------------------------------------------------------------
+Map和Set
+    1.Map
+        示例
+            let map = new Map([['tom',100],['jack',80],['ha',55]]);
+            console.log(map.get('tom'));
+
+        添加/修改
+            map.set('hello',123456);
+
+        删除
+            map.delete('tom');
+
+    2.Set
+        说明
+            set可以去重
+
+        示例
+            let set = new Set([1,2,3,4,1,2,3,5]);
+	        console.log(set); 
+
+        删除
+            set.delete(1);
+
+        判断是否包含
+            set.has(2);
+
+---------------------------------------------------------------------------------------------------
 9.案例
     1.代码示例
         <form action="https://www.houdunren.com" id="form">
@@ -455,13 +768,93 @@
     2.代码解析
         1. 
 ---------------------------------------------------------------------------------------------------
+函数
+    1示例
+        .function sum(x) {
+            if (typeof x !== 'Number')
+                throw "参数非为数字";
+            return x * x;
+        }
+
+    可自定义异常
+
+    arguments
+        arguments.length 函数参数的数量
+
+    rest
 
 
 
 
+
+
+
+------------------------------------------------------------------------------ ---------------------
+方法
+    定义
+        person = {
+            name: 'jeje',
+            birth: 2000,
+            age: function () {
+                let now = new Date().getFullYear;
+                return now - this.birth;
+            }
+	    }
+
+---------------------------------------------------------------------------------------------------
+JSON
+    1.说明
+        JavaScript一切皆为对象
+
+    2.示例
+        let user = {
+            name:'olddon',
+            age:3
+        }
+        console.log(user);
+        let a = JSON.stringify(user);
+        console.log(a);
+        let b = JSON.parse(a);
+        console.log(b);
+
+---------------------------------------------------------------------------------------------------
+面向对象
+    1.__proto__继承
+        let user = {
+            name:'olddon',
+            age:3,
+            run:function(){
+                console.log(this.name+"run...");
+            }
+        };
+        let xiao = {
+            name:"xiaoming"
+        };
+        xiao.__proto__ = user;
+
+        console.log(xiao);
+
+    2.class继承
+        class student{
+            constructor(name){
+                this.name = name;
+            };
+            hello(){
+                alert(this.name+"hello");
+            };
+        };
+
+        let xi = new student("tonydon");
+        xi.hello();
 
 
 ---------------------------------------------------------------------------------------------------
+DOM
+    1.
+
+
+
+
 
 
 

@@ -1,0 +1,45 @@
+1. 
+    You will be able to use this e-mail to notify yourself on custom events via in-game API. No spam, we promise.
+    您将能够使用这封电子邮件通过游戏内API通知您自己的自定义事件。我们保证不发垃圾邮件。
+
+2.
+    Other players will see this unique name at your rooms, creeps, and structures. At least 3 alphanumeric characters.
+    其他玩家会在你的房间、怪物和建筑中看到这个独特的名字。至少3个字母数字字符。
+
+3.  
+    I don't want to use in-game notifications
+    我不想使用游戏内通知
+
+4.  
+    Modular architecture of a script will allow easy testing of individual functions in the simulator.
+    脚本的模块化架构将允许在模拟器中轻松测试单个功能。
+
+5.
+    There is no Controller in this room. Controllers allow players capture rooms and build facilities in them. 
+    A room with no Controller cannot be captured. Please choose another room.
+    这个房间里没有控制器。控制器允许玩家占领房间并在其中建造设施。没有控制器的房间不能被捕获。请选择另一个房间。
+
+6.
+    Your remote scripts have been changed. Do you want to replace scripts on your local file system with the remote scripts?
+    您的远程脚本已被更改。要将本地文件系统上的脚本替换为远程脚本吗?
+
+7.
+    We have sent you an e-mail,Please visit later in your mailbox check your email and reset your password,
+    Contact us if you do not receive it
+    我们已经给您发了邮件，请稍后在您的邮箱中查看您的邮件并重新设置您的密码，如果您没有收到请联系我们
+
+8.  
+    The evaluation process may affect the results shown here, 
+    but it does not affect the value of the output from the code itself.
+    评估过程可能会影响这里显示的结果，但它不会影响代码本身的输出值。
+
+
+
+
+
+
+
+
+
+
+
