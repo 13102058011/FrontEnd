@@ -86,9 +86,32 @@
     The software was found to be partially responsible for two MAX accidents in Indonesia and Ethiopia
     该软件被发现对 印度尼西亚 和 埃塞俄比亚 的两起重大事故负有部分责任
 
+22.
+    Students in the basic class of the algorithm only need to use the arithmetic operator ‘+’ to complete the problem, 
+    without considering the requirements of the bit operation.
+    算法基础课的学生只需要使用算术运算符‘+’来完成问题，不考虑位运算的要求。
 
+23.
+    Image decode failed
+    图像解码失败
 
+24.
+    Live reload enabled.
+    Live重新加载启用
 
+25.
+    Before you begin, we have a few tips to help you get you started.
+    在你开始之前，我们有一些建议来帮助你开始。
 
+26.
+    The code does not execute properly. Try to figure out why
+    代码不能正确执行。试着找出原因
 
+27.
+    By creating an account, you agree to our Privacy Policy
+    通过创建一个帐户，您同意我们的隐私政策
 
+28
+    Congratulations on making it through the initiation challenges!
+    Now its time to step up your game.
+    祝贺你通过了入会挑战! 现在是时候提升你的水平了
