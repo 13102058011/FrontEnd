@@ -24,7 +24,7 @@
     您的远程脚本已被更改。要将本地文件系统上的脚本替换为远程脚本吗?
 
 7.
-    We have sent you an e-mail,Please visit later in your mailbox check your email and reset your password,
+    We have sent you an e-mail, Please visit later in your mailbox check your email and reset your password,
     Contact us if you do not receive it
     我们已经给您发了邮件，请稍后在您的邮箱中查看您的邮件并重新设置您的密码，如果您没有收到请联系我们
 
@@ -115,3 +115,21 @@
     Congratulations on making it through the initiation challenges!
     Now its time to step up your game.
     祝贺你通过了入会挑战! 现在是时候提升你的水平了
+
+29
+    This group has a policy of no live Facebook feeds.
+    这个组织的政策是不允许在Facebook上实时更新
+
+30.
+    To contain cross infection of the virus, railways, airports and other public transportation hubs have strengthened disinfection, 
+    ventilation and sanitation of vehicles and stations across China, reported China Daily.
+    据《中国日报》报道，为了控制病毒的交叉感染，中国各地的铁路、机场和其他公共交通枢纽都加强了车辆和车站的消毒、通风和卫生
+
+31.
+    Passengers must go through body-temperature screenings at both entrances and exits of public transport stations. 
+    乘客必须在公共交通站的出入口接受体温检查
+    
+32.
+    People with temperatures above 37.3 C will be transferred to health departments.
+    温度超过37.3摄氏度的人将被转移到卫生部门
+
