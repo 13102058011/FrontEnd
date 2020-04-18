@@ -1,0 +1,669 @@
+1.html细节知识
+    1.为什么叫做html
+        1. 编写网页的语言，叫做HTML，规则由W3C制定
+        2. W3C		万维网联盟
+        3. HTML		-超文本语言
+
+    2.文件命名
+        1. 使用小写字母命名文件，不要出现中文字符
+        2. 扩展名标准是.html，当然也可以使用.htm
+        3. 多个单词可以使用 - 或 _ 连接，建议使用 - 字符如user-create.html
+    
+    3.URL
+        1. 说明
+    		统一资源定位符，用于表示资源在网络上的地址，每个部分以/进行分隔
+        2. 示例
+    		http资源访问 	 : https://www.houdunren.com/edu/front/lesson/298.html
+    		FTP文件下载  	-: ftp://ftp.houdunren.com/download/php.pdf
+    		MAILTO邮箱地址    : mailto:2300071698@qq.com
+    	3. 解析
+    		参数			  说明
+    		https			  -访问协议 http或https、ftp、mailto
+    		www.houdunren.com		-服务器地址
+    		edu/front/lesson		资源目录
+    		298.html			文件名
+    
+    4.访问路径
+    	1.绝对路径
+    		1. 绝对路径包含主机+服务器地址+目录+文件名的完整路径
+    		2. https://www.houdunren.com/edu/front/lesson/298.html
+    
+    	2.相对路径
+    		1. 相对路径是指相对当前目录的地址
+    		2. ../3.html (上级目录中的文件)
+
+-------------------------------------------------------------------------------
+2.基本结构
+	1.代码示例
+
+```html
+<!DOCTYPE html>	  	
+	<html lang="zh-CN">	  
+		<head>		
+			<meta charset="utf-8" />
+			<meta name="keyword" content="Mysql,Laravel,Javascript,HTML,CSS,ES6,TYPESCRIPT,后盾人,后盾人教程" />
+				<meta name="description" content="后盾人专注WEB开发，高密度更新视频教程" />
+				<title>这是网页的标题</title>		
+			</head>
+			<body>			
+				<p> p标签代表段落，因此这里的内容会独占一行 </p>
+				<!-- 这里的内容不会显示在网页上，它通常用来注释我们的程序代码 -->
+			</body>
+		</html>
+```
+
+
+
+		<!DOCTYPE html>	  	
+		<html lang="zh-CN">	  
+			<head>		
+				<meta charset="utf-8" />
+				<meta name="keyword" content="Mysql,Laravel,Javascript,HTML,CSS,ES6,TYPESCRIPT,后盾人,后盾人教程" />
+				<meta name="description" content="后盾人专注WEB开发，高密度更新视频教程" />
+				<title>这是网页的标题</title>		
+			</head>
+			<body>			
+				<p> p标签代表段落，因此这里的内容会独占一行 </p>
+				<!-- 这里的内容不会显示在网页上，它通常用来注释我们的程序代码 -->
+			</body>
+		</html>
+
+​	
+
+	2.代码解析
+		1. <!DOCTYPE html>	这句声明就是告诉浏览，请使用HTML5的标准来解析这个网页
+		2. lang="zh-CN"	   网页的语言，如en/zh-CN等，非必选项目
+		3. head		   表示网页的头部，这里的信息都是对网页的整体说明
+		4. charset="utf-8"	-字符编码
+		5. keyword		-搜索引擎说明你的网页的关键词
+		6. description	  -向搜索引擎描述网页内容的摘要信息
+		7. title	   -网页标题
+		8. body		   body表示网页的身体，网页的主要内容都写在这里
+
+-------------------------------------------------------------------------------
+3.HTML基本语法
+	1.<p></p>
+		p标签代表段落，因此这里的内容会独占一行
+		
+	2.<h1~6></h1~6>
+		h1~6标签代表标题，1~6代表不同大小的标题
+		
+	3.<i></i> | <em></em>
+		i标签代表斜体字
+		
+	4.<hr/>
+		hr标签代表一条水平线
+		
+	5.<b></b> | <strong></strong>
+		加粗字体
+		
+	6.<br/>
+		换行
+	
+	7.&nbsp;
+		代表一个空格
+		HTML只能识别段落内的一个空格，使用&nbsp;显示一个空格
+		
+	10.<!--注释-->
+		这是一个注释
+		
+	11.<del></del>
+		给文字增加删除键,标签表示删除的内容，ins一般与del标签配合使用描述更新与修正
+	
+	12.<sup>2</sup>
+		把文字变成上标
+		
+	13.<u></u>
+		给文字加上下划线
+		
+	14.<center></center>
+		使文字居中
+		
+	15.&copy
+		备案中图标
+		
+	16<body bgcolor="#6A5ACD">
+		body的背景颜色
+	
+	17.<ins>前端</ins>
+		定义插入字，文字带下划线
+		
+	18.<sub>2</sub>
+		定义下标字，H<sub>2</sub>O
+		
+	19.<em>强调</em>
+		强调字体
+	
+	20.<head></head>
+		一块区域的头部
+	
+	21.<footer></footer>
+		footer标签定义文档或节的页脚，页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等。
+	
+	22.<nav></nav>
+		导航区域
+	
+	23.<article></article>
+		article 标签规定独立的自包含内容区域。不要被单词的表面意义所局限，article 标签表示一个独立的内容容器
+	
+	24.<section></section>
+		使用 section 定义一个区块，一般是一组相似内容的排列组合
+	
+	25.<aside></aside>
+		使用 aside 用于设置与主要区域无关的内容，比如侧面栏的广告等
+	
+	26.<div></div>
+		1. div通用容器标签是较早出现的，也是被大多数程序员使用最多的容器
+		2. 不过我们应该更倾向于使用有语义的标签如article/section/aside/nav等
+		3. 有些区域这些有语义的容器不好表达，这时可以采用div容器
+	
+	27.<main></main>
+		HTML5中使用main标签表示页面主要区域，一个页面中main元素最好只出现一次
+	
+	28.<pre></pre>
+		原样输出标签，原样显示文本内容包括空白、换行等
+	
+	29.<span></span>
+		span标签与div标签都是没有语义的，span常用于对某些文本特殊控制，但该文本又没有适合的语义标签
+	
+	30.<small></small>
+		字体小点，用于设置描述、声明等文本
+	
+	31.<time></time>
+		标签定义日期或时间，或者两者。
+	
+	32.<abbr title="JavaScript">JS</abbr>
+		abbr标签用于描述一个缩写内容，title的内容是鼠标放置的显示内容
+	
+	33.<s></s>
+		标签显示效果与 del 相似，但语义用来定义那些不正确、不准确或没有用的文本。
+	
+	34.<code></code>
+		用于显示代码块内容，一般需要代码格式化插件来完成代码高亮
+	
+	35.<progress value="30" max="100">内容</progress>
+		1. 用于表示完成任务的进度，当游览器不支持时显示内容
+		2. value代表当前值
+		3. max代表最大值
+	
+	36.<strong></strong>
+		strong 标签和 em 一样，用于强调文本，但是它们的强调程度不同
+	
+	37.<mark></mark>
+		用于突出显示文本内容，类似我们生活中使用的马克笔，黄色背景色
+	
+	38.<cite></cite>
+		标签通常表示它所包含的文本对某个参考文献的引用，或文章作者的名子。
+	
+	39.<blockquote></blockquote>
+		用来定义摘自另一个源的块引用
+	
+	40.<address></address>
+		用于设置联系地址等信息，一般将address 放在footer 标签中
+	
+	41.<q></q>
+		用于表示行内引用文本，在大部分浏览器中会加上引号
+
+-------------------------------------------------------------------------------
+4.图片
+	<img src="img/11.gif" alt="" title = "" height = "">
+	1.常见属性
+		src = "图片路径"
+		title = "鼠标滑上去的提示"
+		alt = "图片加载失败后的文字"
+		height/weight = "图片尺寸"
+		
+	1.图片的显示
+		图片在网页中自左往右显示，并默认以底部对齐
+		当一行放不下所有图片时，会在下一行显示
+	
+	2.调整图片的大小
+		<img src="images/01.jpg"  height="100px">
+		height和weigth只需设定一个就可以了，图片会成比例进行放缩
+		如果两个都设置，需要保证比例不变，否则图片会变形
+		height = "100%"表示撑满屏幕
+		px是像素单位
+
+-------------------------------------------------------------------------------
+5.链接
+	1.链接数据
+		1.文本链接
+		2.图片链接
+		
+	2.属性
+		1.href属性：指向另一个文档的链接
+		2.name属性：创建文档内的链接
+		
+	3.示例
+		<a href="https://www.baidu.com/" target="_blank" title = "" alt = "">
+			<img src="img/11.gif">
+			百度
+		</a>
+		
+		href = "网页地址"
+		target = "_blank"表示在新页面打开，无target表示在当前页面打开
+		title = "鼠标滑上去的提示"
+		alt = "替换文本"
+		a标签中可以添加图片
+		<a href = "#">代表空链接
+	
+	3.锚点
+		1. 使用name进行跳转
+			<a name="tips">hello</a>
+			<a href="#tips">跳转到hello</a>
+		
+		2. 使用id进行跳转
+			<a href="#houdunren" target="_blank" title="baidu">点击跳转</a>
+			<div style="background: red; height: 3000px;"></div>
+			<div id="houdunren">锚点</div>
+		
+		3. 跳转到另一个页面锚点
+			<a href="002.html#houdunren" target="_blank" title="baidu">点击跳转</a>
+	
+	4.发送邮件
+		1.代码示例
+			<a href="mailto:1400615611@qq.com">发送邮件</a>
+		
+		2.代码解析
+			直接打开电脑的第三方邮件客户端发送邮件
+	
+		3.注意事项
+			一般不这么写，会被爬虫爬取信息，使用以下内容代替
+			请把 # 改成 @ 后发送邮件，1400615611@qq.com
+	
+	5.拨打电话
+		1.代码示例
+			<a href="tel:13102058011">拨打电话</a>
+	
+		2.代码解析
+			手机上直接点击拨打电话
+	
+	6.显示图片
+		1.代码示例
+			<a href="img/19102615.png">显示图片</a>
+	
+		2.代码解析
+			点击显示图片
+	
+	7.下载图片
+		1.代码示例
+			<a href="img/19102615.psd">下载图片</a>
+	
+		2.代码解析
+			将后缀改成psd，点击下载图片，但是有的可以选择，有的不可以
+
+-------------------------------------------------------------------------------
+6.如何下载图片及贴图
+	1.网页中下载图片
+		1.直接右击图片下载
+		2.F12打开源码，从中查找图片下载地址
+
+	2.使用PhotoShop切图
+		1.添加图片
+		
+		2.选择切图工具
+		
+		3.切取
+		
+		4.保存
+	
+		5.常用快捷键
+			1.调整大小
+				alt + 鼠标滚轮
+			2.保存
+				ctrl + alt + shift + s 
+
+-------------------------------------------------------------------------------
+7.绝对地址和相对地址
+	1.绝对地址
+		在任何情况下，都可以找的的地址
+	2.相对地址
+		必须知道当前所在，才能找到
+		../img/baidu.jpg
+		../表示返回上一级
+-------------------------------------------------------------------------------
+8.有序列表
+	<ol type = "" start="10">
+		<li>种子</li>
+		<li>呵呵</li>
+		<li>搜索</li>
+	</ol>
+	
+		1.默认以数字列表显示（type = "1"）
+			1.种子
+			2.呵呵
+			3.搜索	
+	
+		2.type = "a"
+			以abc显示
+	
+		3.type = "A"
+			以ABC显示
+	
+		4.type = "i"
+			以小写罗马字符显示	
+	
+		5.type = "I"
+			以大写罗马字符显示
+	
+		6.start="10"
+			以数字10开始
+
+-------------------------------------------------------------------------------
+9.无序列表
+	<ul type = "">
+		<li>种子</li>
+		<li>呵呵</li>
+		<li>搜索</li>
+	</ul>
+		1.默认带·的列表显示（type = "disc"）
+			·种子 
+			·呵呵
+			·搜索	
+
+		2.type = "circle"
+			表示空心圆?	
+	
+		3.type = "square"
+			表示黑方块■
+
+<9.1>描述列表
+	<dl>
+		<dt>名词</dt>
+		<dd>解释</dd>
+		...
+	</dl>
+
+	dt是标题
+-------------------------------------------------------------------------------
+10.表格
+	<table border="1px"          cellspacing="0" 		cellpadding="10px" 
+		bgcolor="#8A2BE2"        background="001.jpg"	  bordercolor="dimdray"
+	    width="100" 		 height="100"		   align="center">
+		<caption>表格标题</caption>
+		<thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+		<tr>
+			<td>张三</td>
+			<td>男</td>
+		</tr>
+		<tr>
+			<td>王小丫</td>
+			<td>女</td>
+		</tr>
+	</table>
+	
+		1.代码解析
+			1.<table></table>		   表示表格
+			2.<tr></tr>				表示一行
+			3.<td></td>				表示一个单元格
+			4.<th></th>				表示表头，文字加粗并居中显示
+			5.<caption>				标题
+			6.<thead>			   语义表头
+			7.<tbody>			   表格主体部分
+			8.<tfoot>			   表格尾部
+			
+		2.table标签属性解析
+			3.border="1px"				表示加入边框，默认双边框
+			4.cellspacing="0"			单元格与单元格之间的间距
+			5.cellpadding="10"			单元格与内容之间的距离
+			6.bgcolor="#8A2BE2"			填充背景颜色
+			7.background="001.jpg"		填充图片
+			8.bordercolor="dimdray"		边框颜色
+			9.width="100" 				表格的宽度
+			10.height="100"				表格的高度
+			11.align="center"			表格对齐方式
+			
+		3.tr标签属性解析
+			1.width="200px"				宽度
+			2.align = "center"			一行的文本对齐方式
+			
+		4.td标签属性解析
+			1.width="200px"				为一列设置宽度（取大原则）
+			2.align="center"			文本对齐方式
+			3.valign="baseline"			文本垂直对齐方式（top/bottom/middle）
+			4.colspan="7"				所要合并单元格的列数
+			5.rowspan="4"				所要合并单元格的行数
+			
+		5.其他标签和属性解析
+			1.<col width="200px" >				为一列表格添加属性
+			2.<caption></caption>				表格标题，居中对齐
+			2.<colgroup span="6" width="100px">		  表示为6列同时设置属性
+		
+		6.表格的三个部分
+			<table border="1px" cellspacing="0" >
+				<thead>
+					表格的页眉
+				</thead>
+				<tbody>
+					表格的主题
+				</tbody>
+				<tfoot>
+					表格的页脚
+				</tfoot>
+			</table>
+			
+		7.关于标签的嵌套
+			1.超链接内不能嵌套超链接
+			2.p标签不能嵌套p标签
+			3.标题标签h1~h6也不能互相嵌套
+	
+		8.单元格合并
+			1. <td colspan="2">java</td>	列合并
+			2. <td rowspan="2">java</td>	行合并
+
+-------------------------------------------------------------------------------
+11.表单
+	<form name="" method="post" action="">
+		<input type="text" name="" id="" value="" />
+		<select>
+			<option value ="">2001</option>
+			<option value ="">2002</option>
+		</select>
+		<textarea rows="20" cols="100">
+			输入内容
+		</textarea>
+	</form>
+	
+	1.代码解析
+		1.<form action="" method=""></form>		  表单域
+		2.<input type="text" value="" />		表单控件
+		3.<select></select>				   下拉菜单
+		4.<textarea rows="" cols=""></textarea>		多行文本框
+		
+	2.form标签内属性解析
+		1.name=""				   规定表单的名称
+		2.action = "提交地址"			表示提交地址，与后端对接
+		3.method="post/get"				规定用于发送 form-data 的 HTTP 方法
+		
+	3.method属性注意事项
+		1.post请求发送的数据用户不可见
+		2.get请求发送的数据都写在地址栏上，用户可见
+		3.get请求通常表示获取数据,post请求通常表示提交数据
+		4.get请求不能提交大量数据，但post可以，因此不要混用
+	
+	4.input标签内属性解析
+		01. name = ""				  定义input元素的名称，后台接收字段名
+		02. id = ""					 作为标签的唯一标识
+		03. value = "" 				  -规定input元素的值(初始值)
+		04. type = "text"				规定input元素的类型，表单类型默认为 text
+		05. placeholder = ""			 -规定帮助用户填写输入字段的提示
+		06. disabled				  -禁用选择
+		07. checked		   			  默认选择
+		08. required				  -必须输入
+		09. maxlength				   允许最大输入字符数
+		10. size					-表单显示长度，一般用不使用而用 css 控制
+		11. readonly				  -只读，可提交到后台
+		
+	5.type属性详解
+		01. type = "text"			文本输入框	
+		02. type = "password"		  密码输入框	
+		03. type = "radio"			-单选框	
+		04. type = "checkbox"		  复选框		
+		05. type = "button"			 普通按钮		
+		06. type = "submit"			 提交按钮		
+		07. type = "reset"			-重置按钮
+		08. type = "file"			文件选择框
+		09. type = "url"		   -输入内容为URL地址
+		10. type = "email"			-输入内容为邮箱
+		11. type = "tel"		   -电话号，移动端会调出数字键盘	
+		12. type = "search"			 搜索框
+		13. type = "hidden"			 隐藏表单,用于提交后台数据
+		14. type = "number"			 只能输入数字，会有上下箭头调整数字大小
+
+
+​		
+​	6.单选框详解
+​		1.代码示例
+​			<input type="radio" name="sex" id="girl" value="girl">
+​	        <label for="girl" >女孩</label>
+​	        <input type="radio" name="sex" id="boy" value="boy" checked>
+​	        <label for="boy">男孩</label>
+​		
+		2.代码解析 
+			1. 一定要设置同一个name值才可以是单选
+			2. label标签提高用户鼠标体验
+	
+	7.复选框详解
+		1.代码示例
+			<input type="checkbox" name="register[]" id="email" value="email">
+	        <label for="email" >邮箱</label>
+	        <input type="checkbox" name="register[]" id="tel" value="tel" checked>
+	        <label for="tel">手机</label>
+	
+		2.代码解析
+			1. name="register[]"	后台使用数组接受数据
+			2. label标签提高用户鼠标体验
+	
+	8.textarea标签属性解析
+		1. 文本域指可以输入多行文本的表单，然更复杂的情况可以使用编辑器如ueditor、ckeditor等
+		2. rows = "5"			文本框窗口的高度，单位是字符
+		3. cols = "4"			文本框窗口的宽度，单位是字符
+	
+	9.label标签
+		1. 使用 label 用于描述表单标题，当点击标题后文本框会获得焦点，需要保证使用的ID在页面中是唯一的。
+		2. 也可以将文本框放在 label 标签内部，这样就不需要设置 id 与 for 属性了(我自己的chrome不可以)
+	
+	10.select标签
+		1.说明
+			下拉列表项可用于多个值中的选择
+	
+		2.代码示例
+			<select name="name" id="" multiple>
+	            <optgroup label="前端">
+	                <option value="php">PHP</option>
+	                <option value="html">HTML</option>
+	                <option value="js">JS</option>
+	            </optgroup>
+	            <optgroup label="后端">
+	                <option value="java" selected>Java</option>
+	                <option value="C++">C++</option>
+	            </optgroup>  
+	        </select>
+	
+		3.代码解析
+			1. multiple				支持多选
+			2. size = "20" 			-列表框高度
+			3. <optgroup label="后端">	   设置选项组，label为选项组的名称
+			4. selected				选中状态
+			5. option	   	   	   选项值
+	
+	11.文件上传
+		1.说明
+			1. 文件上传有多种方式，可以使用插件或JS拖放上传处理
+			2. HTML本身也提供了默认上传的功能，只是上传效果并不是很美观
+	
+		2.代码示例
+			<input type="file" name="image[]" multiple accept=".jpg">
+	
+		3.代码解析
+			1. multiple			支持多选
+			2. accept=".jpg"	  -允许上传类型 .png/.psd
+			3. name="image[]"	   文件多选时使用数组接收
+	
+	12.日期与时间
+		1.代码示例
+			<input type="date" name="date" step="5" min="2019-01-01" max="2020-12-12">
+	        <input type="week">
+	        <input type="month">
+	
+		2.代码解析
+			1. step="5"			间隔：date 缺省是1天，week缺省是1周，month缺省是1月
+			2. min="2019-01-01"		最小时间
+			3. max="2020-12-12"		最大时间
+			4. type="date" 		 -日期选择	
+			5. type="week"		 -周选择
+			6. type="month"		  月选择
+	
+	13.搜索表单
+		1.代码示例
+			<input type="search" name="search">
+		
+		2.代码解析
+			文本框右侧有一个清空按钮
+	
+	14.datalist标签
+		1.说明
+			input表单的输入值选项列表
+	
+		2.代码示例
+			<input type="text" name="search" list="lesson">
+			<datalist id="lesson">
+	            <option value="mysql">mysql</option>
+	            <option value="java">java</option>
+	            <option value="php">php</option>
+	        </datalist>
+	
+		3.代码解析
+			1. 在输入过程中的提示列表
+			2. input表单内使用list与datalist配对
+	
+	15.历史数据的自动提示
+		1.代码示例
+			<input type="text" name="hdcms" autocomplete="on">
+		
+		2.代码解析
+			1. autocomplete="on"	on为开启历史数据自动提示，off为关闭
+	
+	6.注意事项
+		1.form必须有action属性，表示提交地址
+		2.所有需要提交的数据，input必须有name属性
+		3.input按钮的文字，使用value属性表示
+		4.input必须放在form标签内才能提交
+
+-------------------------------------------------------------------------------
+12.声音视频播放的使用
+	1.说明
+		Adobe与苹果公司对 FLASH都不支持或消极状态，这时HTML提供对视频格式的支持，
+		除了使用html提供的标签来播放视频外，也有很多免费或付费的插件，如video.js 、阿里云播放器 等等
+
+	2.代码示例
+		<video src="天空幻境.mp4" width="600" height="300" 
+		autoplay muted controls poster="img/19102617.jpg" preload="none" loop>
+		</video>
+	
+		<audio src="audio/浦琦璋 - 渔舟唱晚 (混音版).mp3" loop controls preload="auto" autoplay></audio>
+	
+	3.代码解析
+		属性	描述
+		1. autoplay				如果出现该属性，则视频在就绪后马上播放（需要指定类型如 type="video/mp4")。
+		3. controls				如果出现该属性，则向用户显示控件，比如播放按钮。
+		4. height="300"		  	  设置视频播放器的高度。
+		5. width="600"		 	 -设置视频播放器的宽度。
+		5. loop			 	  如果出现该属性，则当媒介文件完成播放后再次开始播放。
+		6. muted	          -规定视频的音频输出应该被静音。
+		7. poster="img/19102617.jpg"    -规定视频下载时显示的图像，或者在用户点击播放按钮前显示的图像。
+		8. src="天空幻境.mp4"		 要播放的视频的 URL。
+		9. preload="none"		   如果出现该属性，则视频在页面加载时进行加载，并预备播放。
+	
+	4.preload属性详解
+		1. 如果使用 "autoplay"，则忽略该属性。
+		2. 如果视频观看度低可以设置为 preload="none" 不加载视频数据减少带宽。
+		3. 如果设置为 preload=metadata值将加载视频尺寸或关键针数据，目的也是减少带宽占用。
+		4. 设置为preload="auto" 时表示将自动加载视频数据
+
+-------------------------------------------------------------------------------

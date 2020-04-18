@@ -1,0 +1,1375 @@
+1.JavaScript简介
+	1.JS组成
+		1.ECMAScript
+		2.BOM	整个浏览器
+		3.DOM	document	整个文档，从<html>到</html>
+
+	2.简单语法
+		alert("hello world");      //在页面上弹出警告框，分号可以不加，建议加上
+		document.write("hello world"); //在当前页面上输出
+		
+	3.注意事项
+		1. JavaScript和HTML代码写在同一个文件中，执行顺序自上而下
+		2. 一般JavaScript代码写在head标签内，也可以写在任何地方
+		3. JavaScript可以多次出现，顺序执行
+		4. js代码可以从外部引入
+			1. 创建一个js文件
+			2. <script type="text/javascript" src="demo.js">***</script>
+			3. ***处代码无法执行，只能进行引入
+			4. type="text/javascript"可以省略不写
+			
+		5.document.write("</script>");
+			无法输出</script>
+			使用&lt和&gt分别代表左右尖括号
+			
+	4.注释
+		1.单行注释：//     快捷键：ctrl + /
+		2.多行注释：/**/	快捷键：ctrl + shift + /
+-------------------------------------------------------------------------------
+2.常量变量
+	1.数据类型
+		1.基本数据类型
+			<1>数字		   number		   100,3.14
+			<2>字符串		string		    所有带双引号/单引号	"hello",'hello'
+			<3>布尔值		boolean			true,false
+			<4>特殊数据类型	   null undefined	  null空,undefined未申明
+		2.复合数据类型
+
+	2.声明变量
+		1. 通过关键字var来声明变量
+	        var age = 18;
+	        var name = "xxx",age = 20,sex = "男";
+	    2. 可以同时复制多个变量
+	        var web = a = b = "hello";
+	        console.log(a,web,b);
+	
+	3.标识符
+		1.以字母或下划线开头，不要使用$符号
+		2.严格区分大小写
+		3.标识符必须见名思意
+		
+	4.typeof
+		使用typeof可以看到变量名的类型
+		var age = 18;
+		alert(typeof age);//Number
+		
+	5.js是弱语言，赋值什么类型就是什么类型
+		但不要在后续的代码改变改变量的类型
+
+---------------------------------------------------------------------------------------------------
+3.自动类型转换
+	1.任何类型的数据和字符串进行相加操作时都是拼接成了字符串
+		
+	2.任何数据和字符串做除加法以外的运算时
+		1.与NaN做算数运算时始终都是NaN
+		2.字符串如果是纯数字字符串则在运算过程中转成字符串，否则转换成NaN
+		
+		var tmp = 1-"2";//-1
+		alert(tmp);
+		var temp = 1-"2a";//NaN
+		alert(temp);
+
+---------------------------------------------------------------------------------------------------
+4.变量提升
+    function hd() {
+        if (false) {
+            var web = "hello";
+        }
+        console.log(web);
+    }
+    var web = "hello";会被拆成 var web;和web = "hello";
+    并把var web；提升到程序前面，所以web是undefined
+
+    所以建议var声明变量在程序前面声明
+    使用let定义变量就不会出现问题
+    
+    function run(a = b, b = 3){}
+    run();
+    报错，因为b没有声明
+
+---------------------------------------------------------------------------------------------------
+5.全局污染
+    1.
+        function show(){
+            web = "houdunren.com";         
+        }   
+        show();
+        console.log(web);
+        不加var，let，const是全局变量，会改变全局变量的值
+        使用'use strict'严格模式，会解决影响
+
+    2.
+        var i = 99;
+        for (var i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        console.log(i);
+        i的值会方式改变，使用let替代var会解决影响
+    
+    3.const常量声明
+        1. let和const都有块作用域的作用
+        2. const定义常量，变量名通常使用大写
+    
+    4.window全局对象污染与重复声明
+        1.代码示例
+            var web = "hdcms";
+            console.log(window.web);
+        
+        2.代码解析
+            1. var声明的变量会存于window对象中，作为window的属性
+            2. 使用let声明的变量就不会存于window对象
+            
+    5.重复声明
+        1.代码示例
+            var a = 1;
+            var a = 2;
+    
+        2.代码解析
+            1. 使用var重复声明变量没有报错
+            2. 使用let和const会报错
+
+---------------------------------------------------------------------------------------------------
+6.变量冻结Object.freeze();
+    1.代码示例
+        "use strict"
+        const HOST = {
+            url: "www.baidu.com",
+            port: 8080
+        };
+        Object.freeze(HOST);
+        HOST.port = 80;
+    
+    2.代码解析
+        1. Object.freeze(HOST); 冻结对象的变量，对象中的变量值不可更改
+        2. "use strict"     在严格模式下，修改变量值会报错
+
+---------------------------------------------------------------------------------------------------
+7.传值和传址
+    1.代码示例
+        let a = 1;
+        let b = a;
+        let e = {};
+        let f = e; 
+
+    2.代码解析
+        1. a与b是传值
+        2. e与f是传址
+
+---------------------------------------------------------------------------------------------------
+8.javascript细节知识
+    1.null和undefined
+        1. 引用类型初始为 null
+        2. 基本类型初始为 undefined
+        3. 没有返回值的函数返回 undefined
+
+    2.严格模式
+        1. 变量必须声明才可以使用
+        2. 严格模式在当前作用域受影响
+        3. 不可以使用关键字作为变量名
+    
+    3.等于判断
+        1.代码示例
+            let a = 1;
+            let b = "1";
+            console.log(a == b);    //true
+            console.log(a === b);   //false
+    
+        2.代码解析
+            1. == 会自动进行转型
+            2. === 不会进行转型
+    
+    4.短路特性
+        1.代码示例 
+            let a = 6;
+            let b = 0;
+            let c = a || b;
+            let sex = prompt("请输入性别")||"保密";
+    
+        2.代码解析
+            1. ||运算符会短路
+            2. 会返回真的值
+            3. prompt("");弹窗输入
+    
+    5.window.open('https://baidu.com','hdcms');
+        打开一个新窗口，网站为https://baidu.com，标记为hdcms
+    
+    6.prompt() 
+        1.说明
+            方法用于显示可提示用户进行输入的对话框。
+    
+        2.语法
+            prompt(text,defaultText)
+        
+        3.参数 
+            text        -可选。要在对话框中显示的纯文本（而不是 HTML 格式的文本）。 
+            defaultText     可选。默认的输入文本。 
+    
+        4.返回
+            如果用户单击提示框的取消按钮，则返回 null。如果用户单击确认按钮，则返回输入字段当前显示的文本
+
+---------------------------------------------------------------------------------------------------
+9.循环
+    1.标签循环
+        1.说明
+            标签(label) 为程序定义位置，可以使用continue/break跳到该位置。
+
+        2.代码示例
+            houdunren: for (let i = 1; i <= 10; i++) {
+                hdcms: for (let n = 1; n <= 10; n++) {
+                    if (n % 2 != 0) 
+                        continue hdcms;                
+                    console.log(i, n);
+                    if (i + n > 15) 
+                        break houdunren;                
+                }
+            }
+    
+    2.for/in
+        1.说明
+            用于遍历对象的所有属性，for/in主要用于遍历对象，不建议用来遍历数组
+    
+        2.代码示例
+            let info = {
+                name: "后盾人",
+                url: "houdunren.com"
+            };
+            for (const key in info) {
+                if (info.hasOwnProperty(key)) {
+                    console.log(info[key]);
+                }
+            }
+    
+    3.for/of
+        1.说明
+            用来遍历 Arrays（数组）, Strings（字符串）, Maps（映射）, Sets（集合）等可迭代的数据结构。
+            与 for/in 不同的是 for/of 每次循环取其中的值而不是索引。
+    
+        2.代码示例
+            let arr = [1, 2, 3];
+            for (const iterator of arr) {
+                console.log(iterator);
+            }
+
+---------------------------------------------------------------------------------------------------
+10.类型检测
+    1.typeof
+        1.说明
+            可以使用typeof用于判断数据的类型
+
+        2.typeof 用于返回以下原始类型
+            1. 基本类型：number/string/boolean
+            2. function             函数名
+            3. object              对象名/数组名
+            4. undefined            -未赋值或者未声明
+    
+    2.instanceof
+        instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+        也可以理解为是否为某个对象的实例，typeof不能区分数组，但instanceof则可以。instanceof
+        instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+        也可以理解为是否为某个对象的实例，typeof不能区分数组，但instanceof则可以。
+
+---------------------------------------------------------------------------------------------------
+11.字符串
+    1.声明定义
+        1.使用对象形式创建字符串
+            let hd = new String('houdunren');
+            // 获取字符串长度
+            console.log(hd.length);
+            // 获取字符串
+            console.log(hd.toString());
+
+        2.简写方式       
+            let content = '后盾人';
+            console.log(content);
+    
+    2.转义符号
+        1.说明
+            有些字符有双层含义，需要使用 \ 转义符号进行含义转换。
+            下例中引号为字符串边界符，如果输出引号时需要使用转义符号。
+    
+        2.常用转义符号列表
+            \t	    制表符
+            \n	    换行
+            \\	    斜杠符号
+            \'	    单引号
+            \"	    双引号R
+    
+    3.连接运算符
+        1.代码示例
+            let year = 2010,
+            name = '后盾人';
+            console.log(name + '成立于' + year + '年');   
+            let web = '后盾人';
+            web += '网址：houdunren.com';
+            console.log(web); //后盾人网址：houdunren.com
+        
+        2.代码解析
+            1. 使用 + 可以连接多个内容组合成字符串，经常用于组合输出内容使用
+            2. 使用 += 在字符串上追回字符内容
+    
+    4.模板字面量
+        1.说明
+            1. 使用 `...` 符号包裹的字符串中可以写入引入变量与表达式
+            2. 支持换行操作不会产生错误
+    
+        2.代码示例
+            let url = 'houdunren.com';
+            document.write(`后盾人网址是${url}
+            大家可以在网站上学习到很多技术知识`);
+    
+    5.模板字面量支持嵌套使用
+        2.代码示例
+            let lessons = [
+                {title: '媒体查询响应式布局'},{title: 'FLEX 弹性盒模型'},{title: 'GRID 栅格系统'}
+            ];
+    
+            function template() {
+            return `<ul>
+                ${lessons.map((item)=>`
+                    <li>${item.title}</li>
+                `).join('')}
+            </ul>`;
+            }
+            document.body.innerHTML = template();
+    
+    6.标签模板
+        1.代码示例
+            let lesson = 'css';
+            let web = '后盾人';
+            tag `访问${web}学习${lesson}前端知识`;
+    
+            function tag(strings, ...values) {
+                console.log(strings); //["访问", "学习", "前端知识"]
+                console.log(values); // ["后盾人", "css"]
+            }      
+    
+        2.代码解析
+            1. 标签模板是提取出普通字符串与变量，交由标签函数处理   
+            2. tag是标签，对应标签函数   
+    
+    7.字符串常用函数 (name = "houdunren")
+        1.获取字符串长度
+            1. name.length
+    
+        2.大小写转换
+            1. name.toUpperCase();     全部转换成大写
+            2. name.toLowerCase();     全部转换成小写
+        
+        3.移除空白
+            1. name.trim();        -去除空白
+            2. name.trimLeft();      -删除左边空白
+            3. name.trimRight();      删除右边空白
+        
+        4.获取单字符
+            1. name.charAt(3);       根据从0开始的位置获取字符
+            2. name[3];          -使用数字索引获取字符串 
+    
+        5.截取字符串
+            1. slice()
+                1.name.slice(1)     从指定索引位置开始截取(oudunren)
+                2.name.slice(-3)    -负数代表倒序(ren)
+                3.name.slice(1,3)    指定索引的截取(ou)
+                4.name.slice(-3,-1)   指定索引的倒序(re)
+    
+            2. substr()
+                1.name.substr(1)     从指定索引位置开始截取(oudunren)
+                2.name.substr(-3)    -负数代表倒序(ren)
+                3.name.substr(1,3)    从第一个索引处向后截取3个字符(oud)
+                4.name.substr(-1,-3)   没有意义()
+                5.name.substr(-3,2)   -截取2个字符(re)
+    
+            3.substring()
+                1.name.substring(1)     从指定索引位置开始截取(oudunren)
+                2.name.substring(-3)    -负数都会当作0来处理(houdunren)
+                3.name.substring(1,3)    指定索引的截取(ou)
+                4.name.substring(-3,-1)   没有意义()
+    
+        6.字符串检索
+            1.indexOf() 从开始获取字符串位置，检测不到时返回 -1,第二个参数指查找开始位置
+                1.name.indexOf("d")     
+                2.name.indexOf("d",4)    
+    
+            2.includes() 字符串中是否包含指定的值，第二个参数指查找开始位置, 找到返回 true 反之为 false
+                1.name.includes("d")    
+                2.name.includes("d",4)   
+    
+            3.lastindexOf() 从右侧查找,同indexOf
+                
+            4.startsWith() 判断是否是指定位置开始，第二个参数为查找的开始位置
+                1.name.startsWith('h')//true
+                2.name.startsWith('o', 1)//true
+    
+            5.endsWith() 是否是指定位置结束，第二个参数为查找的结束位置。
+                name.endsWith('com') //true
+                name.endsWith('o', 2) //true
+    
+        7.替换字符串
+            1. replace() 方法用于字符串的替换操作
+            2. name.replace(name,"tonydon")
+        
+        8.重复生成
+            function star(num = 3) {
+                return '*'.repeat(num);
+            }
+            console.log(star());
+    
+        9.类型转换
+            1.分隔字母
+                let name = "hdcms";
+                console.log(name.split(""));
+    
+            2.将字符串转换为数组
+                console.log("1,2,3".split(",")); //[1,2,3]
+    
+            3.隐式类型转换会根据类型自动转换类型
+                let hd = 99 + '';
+                console.log(typeof hd); //string
+    
+            4.使用 String 构造函数可以显示转换字符串类型
+                let hd = 99;
+                console.log(typeof String(hd));
+    
+            5.js中大部分类型都是对象，可以使用类方法 toString转化为字符串
+                let hd = 99;
+                console.log(typeof hd.toString()); //string
+                let arr = ['hdcms', '后盾人'];
+                console.log(typeof arr.toString()); //string
+
+---------------------------------------------------------------------------------------------------
+12.Boolean
+    1.声明定义
+        1.使用对象形式创建布尔类型
+            let bol = new Boolean(true);
+
+        2.但建议使用字面量创建布尔类型
+            let bol = true;
+    
+    2.隐式转换
+        1.说明
+            基本上所有类型都可以隐式转换为 Boolean类型。
+            当与boolean类型比较时，会将两边类型统一为数字1或0
+    
+        2.详解
+            数据类型	    true	        false
+            String	      非空字符串	     空字符串
+            Number	      非0的数值	        -NaN, 0
+            Array	     -数组不参与比较时	    参与比较的空数组
+            Object	      所有对象	
+            undefined	   -无	           undefined
+            null	     无	            null
+            NaN	        -无	            NaN
+    
+    3.显式转换
+        1.使用 !! 转换布尔类型
+            let hd = '';
+            console.log(!!hd); //false
+    
+        2.使用 Boolean 函数可以显式转换为布尔类型
+            let hd = '';
+            console.log(Boolean(hd)); //false
+
+
+    4.实例操作
+        下面使用Boolean类型判断用户的输入，并给出不同的反馈。
+    
+        while (true) {
+        let n = prompt("请输入后盾人成立年份").trim();
+        if (!n) continue;
+        alert(n == 2010 ? "回答正确" : "答案错误！看看官网了解下");
+        break;
+        }
+
+---------------------------------------------------------------------------------------------------
+13.Number
+    1.声明定义
+        let hd = new Number(3);
+        let num = 99;
+
+    2.基本函数
+        1.判断是否为整数
+            console.log(Number.isInteger(1.2));
+    
+        2.指定返回的小数位数可以四舍五入
+            console.log((16.556).toFixed(2)); // 16.56
+    
+    3.NaN
+        1.表示无效的数值，下例计算将产生NaN结果。
+            console.log(Number("houdunren")); //NaN
+            console.log(2 / 'houdunren'); //NaN
+    
+        2.NaN不能使用 == 比较，使用以下代码来判断结果是否正确
+            var res = 2 / 'houdunren';
+            if (Number.isNaN(res)) {
+                console.log('Error');
+            }
+    
+        3.也可以使用 Object.is 方法判断两个值是否完全相同
+            var res = 2 / 'houdunren';
+            console.log(Object.is(res, NaN));
+    
+    4.类型转换
+        1.Number
+            1.说明
+                使用Number函数基本上可以转换所有类型
+    
+            2.代码示例
+                console.log(Number('houdunren')); //NaN
+                console.log(Number(true));	//1
+                console.log(Number(false));	//0
+                console.log(Number('9'));	//9
+                console.log(Number([]));	//0
+                console.log(Number([5]));	//5
+                console.log(Number([5, 2]));	//NaN
+                console.log(Number({}));	//NaN
+    
+        2.parseInt
+            1.说明
+                提取字符串开始去除空白后的数字转为整数
+    
+            2.代码示例
+                console.log(parseInt('  99houdunren'));	//99
+                console.log(parseInt('18.55'));	//18
+    
+        3.parseFloat
+            1.说明
+                转换字符串为浮点数，忽略字符串前面空白字符。
+    
+            2.代码示例
+                console.log(parseFloat('  99houdunren'));	//99
+                console.log(parseFloat('18.55'));	//18.55
+    5.舍入操作
+        1.说明
+            使用 toFixed 可对数值舍入操作，参数指定保存的小数位
+    
+        2.示例
+            console.log(1.556.toFixed(2)); //1.56
+
+---------------------------------------------------------------------------------------------------
+Math
+    1.取极限值
+        1.使用 min 与 max 可以取得最小与最大值
+            console.log(Math.min(1, 2, 3));
+            console.log(Math.max(1, 2, 3));
+
+        2.使用apply 来从数组中取值
+            console.log(Math.max.apply(Math, [1, 2, 3]));
+    
+    2.舍入处理
+        1.取最接近的向上整数
+            console.log(Math.ceil(1.111)); //2
+        
+        2.得到最接近的向下整数
+            console.log(Math.floor(1.555)); //1
+    
+        3.四舍五入处理
+            console.log(Math.round(1.5)); //2
+    
+    3.random
+        Math.random() 方法用于返回 >=0 且 <1 的随机数（包括0但不包括1）
+
+---------------------------------------------------------------------------------------------------
+日期
+    1.说明
+        网站中处理日期时间是很常用的功能，通过 Date 类型提供的丰富功能可以非常方便的操作
+
+    2.声明日期
+        1.获取当前日期时间
+            let now = new Date();
+            console.log(now);
+            console.log(typeof date); //object
+            console.log(now * 1); //获取时间戳
+    
+            //直接使用函数获取当前时间
+            console.log(Date());
+            console.log(typeof Date()); //string
+    
+            //获取当前时间戳单位毫秒
+            console.log(Date.now());
+    
+        2.计算脚本执行时间
+            const start = Date.now();
+            for (let i = 0; i < 2000000; i++) {}
+            const end = Date.now();
+            console.log(end - start);
+    
+        3.控制台测试时间
+            console.time("testFor");
+            for (let i = 0; i < 20000000; i++) {}
+            console.timeEnd("testFor");
+    
+        4.根据指定的日期与时间定义日期对象
+            let now = new Date('2028-02-22 03:25:02');
+            console.log(now);
+    
+            now = new Date(2028, 4, 5, 1, 22, 16);
+            console.log(now);
+    
+            let info = [2020, 2, 20, 10, 15, 32];
+            let date = new Date(...info);
+            console.dir(date);
+    
+    3.类型转换
+        1.将日期转为数值类型就是转为时间戳单位是毫秒
+            let hd = new Date("2020-2-22 10:33:12");
+            console.log(hd * 1);
+            console.log(Number(hd));
+            console.log(hd.valueOf())
+            console.log(date.getTime());
+    
+        2.有时后台提供的日期为时间戳格式，下面是将时间戳转换为标准日期的方法
+            const param = [1990, 2, 22, 13, 22, 19];
+            const date = new Date(...param);
+            const timestamp = date.getTime();
+            console.log(timestamp);
+            console.log(new Date(timestamp));
+    
+    4.对象方法
+        Date()	            返回当日的日期和时间。
+        getDate()	         -从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+        getDay()	         从 Date 对象返回一周中的某一天 (0 ~ 6)。
+        getMonth()	          从 Date 对象返回月份 (0 ~ 11)。
+        getFullYear()	       -从 Date 对象以四位数字返回年份。
+        getYear()	         -请使用 getFullYear() 方法代替。
+        getHours()	          返回 Date 对象的小时 (0 ~ 23)。
+        getMinutes()	       返回 Date 对象的分钟 (0 ~ 59)。
+        getSeconds()	       返回 Date 对象的秒数 (0 ~ 59)。
+        getMilliseconds()	     -返回 Date 对象的毫秒(0 ~ 999)。
+        getTime()	         -返回 1970 年 1 月 1 日至今的毫秒数。
+        getTimezoneOffset()	      -返回本地时间与格林威治标准时间 (GMT) 的分钟差。
+        getUTCDate()	       根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。
+        getUTCDay()	          -根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。
+        getUTCMonth()	       -根据世界时从 Date 对象返回月份 (0 ~ 11)。
+        getUTCFullYear()	     根据世界时从 Date 对象返回四位数的年份。
+        getUTCHours()	       -根据世界时返回 Date 对象的小时 (0 ~ 23)。
+        getUTCMinutes()	        -根据世界时返回 Date 对象的分钟 (0 ~ 59)。
+        getUTCSeconds()	        -根据世界时返回 Date 对象的秒钟 (0 ~ 59)。
+        getUTCMilliseconds()	   根据世界时返回 Date 对象的毫秒(0 ~ 999)。
+        parse()	            -返回1970年1月1日午夜到指定日期（字符串）的毫秒数。
+        setDate()	         -设置 Date 对象中月的某一天 (1 ~ 31)。
+        setMonth()	          设置 Date 对象中月份 (0 ~ 11)。
+        setFullYear()	       -设置 Date 对象中的年份（四位数字）。
+        setYear()	         -请使用 setFullYear() 方法代替。
+        setHours()	          设置 Date 对象中的小时 (0 ~ 23)。
+        setMinutes()	       设置 Date 对象中的分钟 (0 ~ 59)。
+        setSeconds()	       设置 Date 对象中的秒钟 (0 ~ 59)。
+        setMilliseconds()	     -设置 Date 对象中的毫秒 (0 ~ 999)。
+        setTime()	         -以毫秒设置 Date 对象。
+        setUTCDate()	       根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。
+        setUTCMonth()	       -根据世界时设置 Date 对象中的月份 (0 ~ 11)。
+        setUTCFullYear()	     根据世界时设置 Date 对象中的年份（四位数字）。
+        setUTCHours()	       -根据世界时设置 Date 对象中的小时 (0 ~ 23)。
+        setUTCMinutes()	        -根据世界时设置 Date 对象中的分钟 (0 ~ 59)。
+        setUTCSeconds()	        -根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。
+        setUTCMilliseconds()	   根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。
+        toSource()	          返回该对象的源代码。
+        toString()	          把 Date 对象转换为字符串。
+        toTimeString()	        把 Date 对象的时间部分转换为字符串。
+        toDateString()	        把 Date 对象的日期部分转换为字符串。
+        toGMTString()	       -请使用 toUTCString() 方法代替。
+        toUTCString()	       -根据世界时，把 Date 对象转换为字符串。
+        toLocaleString()	     根据本地时间格式，把 Date 对象转换为字符串。
+        toLocaleTimeString()	   根据本地时间格式，把 Date 对象的时间部分转换为字符串。
+        toLocaleDateString()	   根据本地时间格式，把 Date 对象的日期部分转换为字符串。
+        UTC()	           -根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。
+        valueOf()	         -返回 Date 对象的原始值
+    
+    5.moment.js
+        1.说明
+            Moment.js是一个轻量级的JavaScript时间库，它方便了日常开发中对时间的操作，提高了开发效率。
+            更多使用方法请访问中文官网 http://momentjs.cn 或 英文官网 https://momentjs.com
+            <script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+    
+        2.使用
+            1.获取当前时间
+                console.log(moment().format("YYYY-MM-DD HH:mm:ss"));
+    
+            2.设置时间
+                console.log(moment("2020-02-18 09:22:15").format("YYYY-MM-DD HH:mm:ss"));
+    
+            3.十天后的日期
+                console.log(moment().add(10, "days").format("YYYY-MM-DD hh:mm:ss"));
+
+---------------------------------------------------------------------------------------------------
+14.数组
+    1.创建数组  
+        1.使用对象方式创建数组
+            console.log(new Array(1, '后盾人', 'hdcms')); //[1, "后盾人", "hdcms"]
+
+        2.使用字面量创建是推荐的简单作法
+            const array = ["hdcms", "houdunren"];
+    
+        3.多维数组定义
+            const array = [["hdcms"], ["houdunren"]];
+            console.log(array[1][0]);
+    
+        4.数组是引用类型可以使用const声明并修改数组的值
+            const array = ["hdcms", "houdunren"];
+            array.push("houdunwang");
+    
+        5.使用原型的 length属性可以获取数组元素数量
+            let hd = ["后盾人", "hdcms"];
+            console.log(hd.length); //2
+    
+        6.数组可以设置任何值，下面是使用索引添加数组
+            let hd = ["后盾人"];
+            hd[1] = "hdcms";
+    
+        7.下面直接设置3号数组，会将1/2索引的数组定义为空值
+            let hd = ["后盾人"];
+            hd[3] = "hdcms";
+            console.log(hd.length); //4
+    
+        8.声明多个空元素的数组
+            let hd = new Array(3);
+            console.log(hd.length);
+            console.log(hd);
+    
+    2.查看数组
+        1.使用console.log()
+        2.使用console.table()
+    
+    3.Array.of
+        1.说明
+            使用Array.of 与 new Array 不同是设置一个参数时不会创建空元素数组
+            let arr = new Array(6); 会创建6个空元素
+    
+        2.代码示例
+            let hd = Array.of(3);
+            console.log(hd); //[3]
+    
+            hd = Array.of(1, 2, 3);
+            console.log(hd); //[1, 2, 3]
+    
+    4.类型检测
+
+
+    5.展开语法
+        1.说明
+            展开语法可以将一个数组展开, 常用于数组合并, 也可作为函数参数来接收多个参数
+    
+        2.代码示例
+            1.数组合并
+                let arr = ['html', 'css'];
+                let hd = ['js', 'java'];
+                arr = [...arr, ...hd];     
+    
+            2.函数参数
+                function sum(...args) {
+                    return args.reduce((s, v) => {
+                        return (s += v);
+                    }, 0)
+                }
+                console.log(sum(1, 2, 3));
+    
+    6.解构赋值
+        1.说明
+            一种方便赋值的语法
+        
+        2.用于数组赋值
+            let arr  = ['tonydon',2020];
+            let [name,year] = arr;
+            console.log(name,year);
+    
+        3.和展开语法使用
+            let arr  = ['tonydon',2020,'老唐'];
+            let [name, ...args] = arr;
+            //后面的值都会赋予 args 数组中
+    
+        4.字符串解构
+            let [...a] = "tonydon.com";
+            console.log(a);
+            //字符串被拆分成字符数组存储到 a 中
+    
+        5.只赋值部分变量
+            let [,url]=['后盾人','houdunren.com'];
+            console.log(url);//houdunren.com
+    
+        6.为变量设置默认值
+            let [name, site = 'hdcms'] = ['后盾人'];
+            console.log(site); //hdcms
+    
+        7.数组参数的使用
+            function hd([a, b]) {
+                console.log(a, b);
+            }
+            hd(['后盾人', 'hdcms']);
+    
+    7.添加元素的多种操作技巧
+        1.利用 length 属性
+            let arr = [1, "后盾人", "hdcms"];
+            arr[arr.length] = 'houdunren.com';
+            console.log(arr); //[1, "后盾人", "hdcms", "houdunren.com"]
+    
+        2.使用展示语法批量添加元素
+            let arr = ["后盾人", "hdcms"];
+            let hd = ["houdunren"];
+            hd.push(...arr);
+            console.log(hd);
+    
+    8.数组常用方法
+        1.push
+            1.说明
+                压入元素，直接改变元数组，返回值为数组元素数量
+    
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.push('向军大叔', 'houdunren')); //4
+                console.log(arr); //["后盾人", "hdcms", "向军大叔", "houdunren"]
+    
+        2.pop
+            1.说明
+                从末尾弹出元素，直接改变元数组，返回值为弹出的元素
+    
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.pop()); //hdcms
+                console.log(arr); //["后盾人"]
+    
+        3.shift
+            1.说明
+                从数组前面取出一个元素
+    
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.shift()); //后盾人
+                console.log(arr); //["hdcms"]
+    
+        4.unshift
+            1.说明
+                从数组前面添加元素
+    
+            2.代码示例
+                let arr = ["后盾人", "hdcms"];
+                console.log(arr.unshift('向军大叔', 'houdunren')); //4
+                console.log(arr); //["向军大叔", "houdunren", "后盾人", "hdcms"]
+        
+        5.fill
+            1.说明
+                使用 fill 填充数组元素
+    
+            2.使用方法
+                1.全部填充
+                    console.dir(Array(3).fill("后盾人")); //["后盾人", "后盾人", "后盾人", "后盾人"]
+    
+                2.部分填充
+                    console.log([1, 2, 3, 4].fill("后盾人", 1, 2)); //[1, "后盾人", 3, 4]
+    
+        6.slice            
+            1.说明
+                使用 slice 方法从数组中截取部分元素组合成新数组（并不会改变原数组）
+                不传第二个参数时截取到数组的最后元素。
+            
+            2.使用方法
+                let arr = [0, 1, 2, 3, 4, 5, 6];
+                console.log(arr.slice(1, 3)); // [1,2]
+    
+        7.splice()
+            1.说明
+                splice() 方法可删除从 index 处开始的零个或多个元素，
+                并且用参数列表中声明的一个或多个值来替换那些被删除的元素。
+            
+            2.语法
+                arrayObject.splice(index,howmany,element1,.....,elementX)参数 描述 
+    
+            3.参数
+                index      需。规定从何处添加/删除元素该参数是开始插入和（或）删除的数组元素的下标，必须是数字。
+                howmany     必需。规定应该删除多少元素。必须是数字，但可以是 "0",如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。
+                element1    -可选。规定要添加到数组的新元素。从 index 所指的下标处开始插入。 
+                elementX    -可选。可向数组添加若干元素。 
+    
+            4.返回值
+                如果从 arrayObject 中删除了元素，则返回的是含有被删除的元素的数组。
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+对象
+    创建元素
+        let person = {
+            name : 'hello',
+            age:3,
+            email: "olddon@qq.com"
+        };
+
+    删除元素
+        delete person.email;
+    
+    添加元素
+        person.qq = 1400615611;
+    
+    判断属性值是否在对象中
+        'name' in person 返回布尔值
+
+
+​    
+
+---------------------------------------------------------------------------------------------------
+Map和Set
+    1.Map
+        示例
+            let map = new Map([['tom',100],['jack',80],['ha',55]]);
+            console.log(map.get('tom'));
+
+        添加/修改
+            map.set('hello',123456);
+    
+        删除
+            map.delete('tom');
+    
+    2.Set
+        说明
+            set可以去重
+    
+        示例
+            let set = new Set([1,2,3,4,1,2,3,5]);
+            console.log(set); 
+    
+        删除
+            set.delete(1);
+    
+        判断是否包含
+            set.has(2);
+
+---------------------------------------------------------------------------------------------------
+9.案例
+    1.代码示例
+        <form action="https://www.houdunren.com" id="form">
+            用户名：<input type="text" name="user">
+            <hr>
+            <input type="checkbox" name="copyright">接受协议
+            <hr>
+            <button>提交</button>
+        </form>
+
+        <script>
+            "use strict"
+    
+            function query(el) {
+                return document.querySelector(el);
+            }
+    
+            query("#form").addEventListener("submit",
+                function (event) {
+                    let user = query("[name='user']").value.trim();
+                    let copyright = query("[name = 'copyright'").checked;
+                    console.log(copyright);
+                    if (!user || copyright == false) {
+                        event.preventDefault();
+                        alert("!!");
+                    }
+                });
+        </script>
+    
+    2.代码解析
+        1. 
+---------------------------------------------------------------------------------------------------
+函数
+    1示例
+        .function sum(x) {
+            if (typeof x !== 'Number')
+                throw "参数非为数字";
+            return x * x;
+        }
+
+    可自定义异常
+    
+    arguments
+        arguments.length 函数参数的数量
+    
+    rest
+
+
+
+
+
+
+
+------------------------------------------------------------------------------ ---------------------
+方法
+    定义
+        person = {
+            name: 'jeje',
+            birth: 2000,
+            age: function () {
+                let now = new Date().getFullYear;
+                return now - this.birth;
+            }
+	    }
+
+---------------------------------------------------------------------------------------------------
+JSON
+    1.说明
+        JavaScript一切皆为对象
+
+    2.示例
+        let user = {
+            name:'olddon',
+            age:3
+        }
+        console.log(user);
+        let a = JSON.stringify(user);
+        console.log(a);
+        let b = JSON.parse(a);
+        console.log(b);
+
+---------------------------------------------------------------------------------------------------
+面向对象
+    1.__proto__继承
+        let user = {
+            name:'olddon',
+            age:3,
+            run:function(){
+                console.log(this.name+"run...");
+            }
+        };
+        let xiao = {
+            name:"xiaoming"
+        };
+        xiao.__proto__ = user;
+
+        console.log(xiao);
+    
+    2.class继承
+        class student{
+            constructor(name){
+                this.name = name;
+            };
+            hello(){
+                alert(this.name+"hello");
+            };
+        };
+    
+        let xi = new student("tonydon");
+        xi.hello();
+---------------------------------------------------------------------------------------------------
+BOM
+    1.定义
+        BOM 层次结构的顶层是窗口对象，它包含有关显示文档的窗口的信息。
+        某些窗口对象本身就是描述文档和相关信息的对象。
+
+    2.对话框
+        1. alert()：显示带有一段消息和一个确认按钮的警告框。
+        2. prompt()：显示可提示用户输入的对话框。
+        3. confirm()：显示带有一段消息以及确认按钮和取消按钮的对话框。
+    
+    3.页面加载事件
+        1.onload
+            window.onload = function() {
+                // 当页面加载完成执行
+                // 当页面完全加载所有内容（包括图像、脚本文件、CSS 文件等）执行
+            };
+    
+        2.onunload
+            window.onunload = function() {
+                // 当用户退出页面时执行
+            };
+    
+    3.浏览器尺寸
+        1.示例
+            var width = window.innerWidth;
+            document.documentElement.clientWidth;
+            document.body.clientWidth;
+    
+            var height = window.innerHeight;
+            document.documentElement.clientHeight;
+            document.body.clientHeight;
+    
+        2.说明
+            上述代码可以获取所有浏览器的宽高（不包括工具栏/滚动条）。
+    
+    4.定时器
+        1.setTimeout() 
+            1.说明
+                方法在指定的毫秒数到达之后执行指定的函数，只执行一次。
+                clearTimeout() 方法取消由 setTimeout() 方法设置的 timeout。
+     
+            2.示例
+                // 创建一个定时器，2000毫秒后执行，返回定时器的标示
+                var timerId = setTimeout(function() {
+                console.log("Hello shiyanlou");
+                }, 2000);
+    
+                // 取消定时器的执行
+                clearTimeout(timerId);
+    
+        2.setInterval()
+            1.说明
+                方法设置定时调用的函数也就是可以按照给定的时间（单位毫秒）周期调用函数，
+                clearInterval() 方法取消由 setInterval() 方法设置的 timeout。
+              
+            2.示例
+                // 创建一个定时器，每隔 2 秒调用一次
+                var timerId = setInterval(function() {
+                var date = new Date();
+                console.log(date.toLocaleTimeString());
+                }, 2000);
+    
+                // 取消定时器的执行
+                clearInterval(timerId);
+
+---------------------------------------------------------------------------------------------------
+HTML DOM
+    1.介绍
+        DOM 是Document Object Model( 文档对象模型 )的缩写。
+        DOM是把html里面的各种数据当作对象进行操作的一种思路。
+        比如一个超链，作为一个DOM对象，就可以使其隐藏，修改其href指向的地址
+
+    2.节点概念
+        1.说明
+            DOM把所有的html都转换为节点
+            整个文档 是一个节点
+            元素 是节点
+            元素属性 是节点
+            元素内容 是节点
+            注释 也是节点
+    
+        2.代码示例
+            <div id="d1">hello HTML DOM</div>
+            
+            function p(s){
+                document.write(s);
+                document.write("<br>");
+            }
+            var  div1 = document.getElementById("d1");
+            p("文档节点"+document);
+            p("元素"+div1);
+            p("属性节点"+div1.attributes[0]);
+            p("内容节点"+div1.childNodes[0]);
+    
+    3.获取节点
+        1.通过id获取元素节点
+            1.说明
+                在设计html的时候，一个元素对应的id应该是唯一的。
+                可以通过 document.getElementById("") 获取某个元素对应的元素节点对象
+    
+            2.示例
+                <div id="d1">hello HTML DOM</div>
+                var  div1 = document.getElementById("d1");
+    
+        2.通过标签名称获取元素节点
+            1.说明
+                所有的元素都有标签名
+                通过 document.getElementsByTagName("") 根据标签名称获取一个元素数组。
+    
+            2.示例
+                <div >hello javascript</div>
+                <div >hello BOM</div>
+                <div >hello DOM</div>
+    
+                var  divs = document.getElementsByTagName("div");
+                for(i=0;i<divs.length;i++){
+                    document.write(divs[i]);
+                    document.write("<br>");
+                }
+    
+        3.通过类名获取元素节点
+            1.说明
+                与 getElementsByTagName 类似的
+                也可以通过 document.getElementsByClassName("") 根据class返回一个节点数组
+    
+            2.示例
+                <h1  class="d" >hello javascript</h1>
+                <h2  class="d" >hello BOM</h2>
+                <div  class="d" >hello DOM</div>
+    
+                var  elements= document.getElementsByClassName("d");
+                for(i=0;i<elements.length;i++){
+                    document.write(elements[i]);
+                    document.write("<br>");
+                }
+    
+        4.通过表单元素的name获取元素节点
+            1.说明
+                表单元素都有name属性
+                通过 document.getElementsByName("") 可以根据name属性的值，获取元素节点。
+    
+            2.示例
+                用户名 <input name="userName"> <br>
+                密码  <input name="userPassword">
+                
+                var elements = document.getElementsByName("userName");
+                for(i=0;i<elements.length;i++){
+                    document.write(elements[i]);
+                    document.write("<br>");
+                }
+    
+        5.获取属性节点
+            1.说明
+                首先通过getElementById获取元素节点，然后通过元素节点的attributes获取其下所有的属性节点。
+    
+            2.示例
+                <div id="d1" align="center" class="abc">hello HTML DOM</div>
+                
+                var  div1 = document.getElementById("d1");
+                var as = div1.attributes;
+                document.write("div总共有"+as.length +" 个属性");
+                document.write("分别是:");
+                for(i = 0; i< as.length; i++){
+                    document.write("<br>");
+                    document.write(as[i].nodeName);
+                    document.write(":");
+                    document.write(as[i].nodeValue);
+                }
+                document.write("<br>");
+                document.write("div的id属性值是："+ as["id"].nodeValue);
+                
+        6.获取内容节点
+            1.说明
+                首先通过document.getElementById获取元素节点，然后通过childNodes获取其所有的子节点。 其中第一个子节点，就是其内容节点。
+                然后借助nodeName和nodeValue把内容节点的名称和值打印出来。
+    
+            2.示例
+                <div id="d1" align="center" class="abc">hello HTML DOM</div>
+              
+                var  div1 = document.getElementById("d1");
+                var content = div1.childNodes[0];
+                document.write("div的内容节点名是:"+content.nodeName);
+                document.write("<br>");
+                document.write("div的内容节点值是:"+content.nodeValue);
+     
+    4.节点的属性
+        1.节点名称
+            1.说明
+                nodeName 表示一个节点的名字
+    
+            2.示例
+                <div id="d1">hello HTML DOM</div>
+               
+                function p(s){
+                    document.write(s);
+                    document.write("<br>");
+                }
+                var  div1 = document.getElementById("d1");
+                p("document的节点名称:"+document.nodeName);
+                p("div元素节点的节点名称:"+div1.nodeName);
+                p("div下属性节点的节点名称:"+div1.attributes[0].nodeName);
+                p("div下内容节点的节点名称:"+div1.childNodes[0].nodeName);
+    
+        2.节点值
+            1.说明
+                nodeValue表示一个节点的值
+    
+            2.代码示例
+                document.nodeValue 文档的节点值，是 null
+                div1.nodeValue 元素的节点值，是null
+                div1.attributes[0].nodeValue 属性的节点值，是对应的属性值 d1
+                div1.childNodes[0].nodeValue 内容的节点值，是内容 即： #text
+    
+        3.节点类型
+            1.说明
+                nodeType表示一个节点的类型
+                不同的节点类型，对应的节点类型值是不一样的
+    
+            2.代码示例
+                <div id="d1">hello HTML DOM</div>
+                
+                function p(s){
+                    document.write(s);
+                    document.write("<br>");
+                }
+                var  div1 = document.getElementById("d1");
+                p("document的nodeType是："+document.nodeType);
+                p("元素节点的nodeType是："+div1.nodeType);
+                p("属性节点的nodeType是："+div1.attributes[0].nodeType);
+                p("内容节点的nodeType是："+div1.childNodes[0].nodeType);
+    
+            3.属性解析
+                元素    1
+                属性    2
+                文本    3
+                注释    8
+                文档    9
+    
+        4.元素的文本内容
+            1.说明
+                修改与获取内容的值可以通过 childNodes[0].nodeValue进行
+                还有个简便办法就是通过innerHTML进行。 效果是一样的
+    
+            2.示例
+                <div id="d1">hello HTML DOM</div>
+                <button onclick="changeDiv1()">通过内容节点方式改变div的内容</button>
+                <button onclick="changeDiv2()">通过innerHTML改变div的内容</button>
+    
+                function changeDiv1(){
+                    document.getElementById("d1").childNodes[0].nodeValue= "通过childNode[0].value改变内容";
+                }
+                function changeDiv2(){
+                    document.getElementById("d1").innerHTML= "通过innerHTML改变内容";
+                }
+    
+    5.样式
+        1.说明
+            使用 节点.style.属性 进行设置其css样式
+
+
+​        
+    6.改变HTML输入流
+        1.说明
+            在 JavaScript 中，使用 document.write() 可用于直接向 HTML 输出流写内容。比如：
+    
+        2.示例
+            document.write("新设置的内容<p>标签也可以生成</p>");
+
+---------------------------------------------------------------------------------------------------
+Button 对象
+    1.说明
+        Button 对象代表 HTML 文档中的一个按钮。
+        该元素没有默认的行为，但是必须有一个 onclick 事件句柄以便使用。
+        在 HTML 文档中 <input type="button"> 标签每出现一次，一个 Button 对象 就会被创建。
+        您可以通过遍历表单的 elements[] 数组来访问某个按钮，或者通过使用 document.getElementById()。
+
+    2.属性列表
+        accessKey   -设置或返回访问按钮的快捷键。
+        alt      -设置或返回当浏览器无法显示按钮时供显示的替代文本
+        disabled    设置或返回是否禁用按钮
+        form      返回对包含该按钮的表单对象的引用
+        id       设置或返回按钮的 id
+        name      设置或返回按钮的名称
+        tabIndex    设置或返回按钮的 tab 键控制次序
+        type      返回按钮的表单元素类型
+        value     -设置或返回在按钮上显示的文本
+    
+    3.方法
+        blur() 把焦点从元素上移开
+        click() 在某个按钮上模拟一次鼠标单击
+        focus() 为某个按钮赋予焦点 
+
+---------------------------------------------------------------------------------------------------
+setInterval() 方法
+    1.语法
+        setInterval(code,millisec)
+
+```javascript
+2.参数
+    code    执行的代码块用 "" 引起或者使用 lambda 表达式
+    millisec  间隔的毫秒值
+
+3.说明
+    每间隔 millisec 就执行一次 code
+    使用 clearInterval(id); 方法取消由 setInterval() 设置的 timeout。
+    参数 id 是 setInterval() 方法的返回值
+
+4.返回值
+    一个可以传递给 Window.clearInterval() 从而取消对 code 的周期性执行的值
+
+5.示例
+    <div id="d2">随机颜色</div>
+    <button onclick="sclick()" id="button">改变颜色</button>
+   
+    let d2 = document.getElementById("d2");
+    function sclick() {
+        d2.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+        let i =0;
+        let id = setInterval(()=>{
+            d2.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+            i++;
+            if(i==10){
+                clearInterval(id);
+            }
+        },200);
+    }
+```
